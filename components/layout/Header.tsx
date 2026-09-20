@@ -33,7 +33,7 @@ export function Header() {
             item.children ? (
               <div key={item.label} className="group relative">
                 <NavParentButton
-                  href={item.href}
+                  hrefs={[item.href, ...item.children.map((c) => c.href)]}
                   className="flex items-center gap-1 text-sm font-medium text-ink hover:text-forest"
                 >
                   {item.label}

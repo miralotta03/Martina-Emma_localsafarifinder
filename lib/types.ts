@@ -44,3 +44,9 @@ export type FooterLinkColumn = {
   heading: string;
   links: NavLink[];
 };
+
+export type ActivityTypeSlug =
+  | "bergsvandring"
+  | "safariaventyr"
+  | "strandsemester"
+  | "paketresor";

@@ -1,0 +1,78 @@
+import type { ActivityTypeSlug, TravelerCategorySlug } from "@/lib/types";
+
+export type CategoryActivity = {
+  slug: ActivityTypeSlug;
+  title: string;
+  description: string;
+};
+
+export type Category = {
+  slug: TravelerCategorySlug;
+  name: string;
+  // Innehållet nedan är valfritt: en kategori utan det har ingen sida än (404).
+  label?: string;
+  heroText?: string;
+  image?: string;
+  imageAlt?: string;
+  companiesHeading?: string;
+  activities?: CategoryActivity[];
+};
+
+export const categories: Category[] = [
+  {
+    slug: "for-tva",
+    name: "För Två",
+    label: "ROMANTIK, SMEKMÅNAD, LYX...",
+    heroText: "Lugna, privata och hänförande - safaris skapade för två.",
+    image: "/images/traveler-types/for-tva.svg",
+    imageAlt: "",
+    companiesHeading: "Företag för Två",
+    activities: [
+      {
+        slug: "bergsvandring",
+        title: "Bergsvandring",
+        description: "Bestig Kilimanjaro och mer",
+      },
+      {
+        slug: "safariaventyr",
+        title: "Safariäventyr",
+        description: "The Big Five och allt däremellan",
+      },
+      {
+        slug: "strandsemester",
+        title: "Strandsemester",
+        description: "Vit strand och turkost vatten",
+      },
+      {
+        slug: "paketresor",
+        title: "Paketresor",
+        description: "Färdiga program från start till mål",
+      },
+    ],
+  },
+  { slug: "med-barn", name: "Med Barn" },
+  { slug: "pa-egen-hand", name: "På Egen Hand" },
+  { slug: "dela-upplevelsen", name: "Dela Upplevelsen" },
+];
+
+export type ReadyCategory = Category &
+  Required<
+    Pick<
+      Category,
+      "label" | "heroText" | "image" | "companiesHeading" | "activities"
+    >
+  >;
+
+export function getCategory(slug: string): Category | undefined {
+  return categories.find((category) => category.slug === slug);
+}
+
+export function isCategoryReady(category: Category): category is ReadyCategory {
+  return Boolean(
+    category.label &&
+      category.heroText &&
+      category.image &&
+      category.companiesHeading &&
+      category.activities?.length,
+  );
+}

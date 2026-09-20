@@ -11,10 +11,10 @@ export const nav: NavDropdownLink[] = [
     label: "Upplevelser",
     href: "/upplevelser",
     children: [
-      { label: "För Två", href: "/upplevelser/for-tva" },
-      { label: "Med Barn", href: "/upplevelser/med-barn" },
-      { label: "På Egen Hand", href: "/upplevelser/pa-egen-hand" },
-      { label: "Dela Upplevelsen", href: "/upplevelser/dela-upplevelsen" },
+      { label: "För Två", href: "/for-tva" },
+      { label: "Med Barn", href: "/med-barn" },
+      { label: "På Egen Hand", href: "/pa-egen-hand" },
+      { label: "Dela Upplevelsen", href: "/dela-upplevelsen" },
     ],
   },
   { label: "Om oss", href: "/om-oss" },
@@ -130,10 +130,10 @@ export const footerColumns: FooterLinkColumn[] = [
   {
     heading: "Utforska",
     links: [
-      { label: "För Två", href: "/upplevelser/for-tva" },
-      { label: "Med Barn", href: "/upplevelser/med-barn" },
-      { label: "På Egen Hand", href: "/upplevelser/pa-egen-hand" },
-      { label: "Dela Upplevelsen", href: "/upplevelser/dela-upplevelsen" },
+      { label: "För Två", href: "/for-tva" },
+      { label: "Med Barn", href: "/med-barn" },
+      { label: "På Egen Hand", href: "/pa-egen-hand" },
+      { label: "Dela Upplevelsen", href: "/dela-upplevelsen" },
     ],
   },
   {

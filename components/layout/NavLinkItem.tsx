@@ -39,15 +39,16 @@ export function NavLinkItem({
 
 // Knappen som öppnar en undermeny (Upplevelser) markeras när någon sida under den är aktiv.
 export function NavParentButton({
-  href,
+  hrefs,
   className = "",
   children,
 }: {
-  href: string;
+  hrefs: string[];
   className?: string;
   children: ReactNode;
 }) {
-  const active = isActivePath(usePathname(), href);
+  const pathname = usePathname();
+  const active = hrefs.some((href) => isActivePath(pathname, href));
 
   return (
     <button

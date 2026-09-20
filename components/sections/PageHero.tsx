@@ -8,20 +8,24 @@ export function PageHero({
   body,
   image,
   align = "end",
+  size = "default",
 }: {
   eyebrow: string;
   heading: string | string[];
   body: string;
   image: string;
   align?: "end" | "center";
+  size?: "default" | "compact";
 }) {
   const lines = Array.isArray(heading) ? heading : [heading];
 
   return (
     <section
-      className={`relative flex min-h-[480px] overflow-hidden bg-forest-deep sm:min-h-[560px] lg:min-h-[620px] ${
-        align === "center" ? "items-center" : "items-end"
-      }`}
+      className={`relative flex overflow-hidden bg-forest-deep ${
+        size === "compact"
+          ? "min-h-[420px] sm:min-h-[480px] lg:min-h-[520px]"
+          : "min-h-[480px] sm:min-h-[560px] lg:min-h-[620px]"
+      } ${align === "center" ? "items-center" : "items-end"}`}
     >
       <Image
         src={image}
