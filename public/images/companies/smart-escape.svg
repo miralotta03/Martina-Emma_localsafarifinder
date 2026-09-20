@@ -1,0 +1,16 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9fb08a" />
+      <stop offset="55%" stop-color="#5f7350" />
+      <stop offset="100%" stop-color="#2c3822" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g)" />
+  <circle cx="980" cy="180" r="90" fill="#fdf3d0" opacity="0.5" />
+  <path d="M0 560 C 300 500 620 580 1200 500 L1200 900 L0 900 Z" fill="#232b1c" opacity="0.6" />
+  <g opacity="0.9">
+    <rect x="24" y="24" width="172" height="34" rx="17" fill="#ffffff" fill-opacity="0.85" />
+    <text x="110" y="46" font-family="Arial, sans-serif" font-size="16" fill="#26302a" text-anchor="middle">Platshållare</text>
+  </g>
+</svg>

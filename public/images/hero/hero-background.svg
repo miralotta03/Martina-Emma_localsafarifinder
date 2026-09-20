@@ -1,0 +1,22 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3424" />
+      <stop offset="55%" stop-color="#2a2a1e" />
+      <stop offset="100%" stop-color="#181d14" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)" />
+  <circle cx="1180" cy="300" r="160" fill="#c9982f" opacity="0.35" />
+  <path d="M0 620 C 260 520 460 560 720 500 C 980 440 1220 560 1600 500 L1600 1000 L0 1000 Z" fill="#232a1c" />
+  <path d="M0 760 C 320 700 560 780 860 720 C 1120 670 1360 760 1600 700 L1600 1000 L0 1000 Z" fill="#171e13" />
+  <g fill="#0f140c">
+    <ellipse cx="300" cy="640" rx="10" ry="26" />
+    <ellipse cx="330" cy="650" rx="7" ry="18" />
+    <ellipse cx="1050" cy="600" rx="11" ry="30" />
+  </g>
+  <g opacity="0.8">
+    <rect x="1224" y="908" width="252" height="28" rx="14" fill="#f6f1e6" />
+    <text x="1350" y="927" font-family="Arial, sans-serif" font-size="14" fill="#26302a" text-anchor="middle">Platshållare – ersätt bild</text>
+  </g>
+</svg>
