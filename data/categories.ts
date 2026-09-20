@@ -18,6 +18,30 @@ export type Category = {
   activities?: CategoryActivity[];
 };
 
+// Aktivitetskorten är gemensamma för kategorierna; en kategori kan skriva över dem.
+const defaultActivities: CategoryActivity[] = [
+  {
+    slug: "bergsvandring",
+    title: "Bergsvandring",
+    description: "Bestig Kilimanjaro och mer",
+  },
+  {
+    slug: "safariaventyr",
+    title: "Safariäventyr",
+    description: "The Big Five och allt däremellan",
+  },
+  {
+    slug: "strandsemester",
+    title: "Strandsemester",
+    description: "Vit strand och turkost vatten",
+  },
+  {
+    slug: "paketresor",
+    title: "Paketresor",
+    description: "Färdiga program från start till mål",
+  },
+];
+
 export const categories: Category[] = [
   {
     slug: "for-tva",
@@ -27,30 +51,18 @@ export const categories: Category[] = [
     image: "/images/traveler-types/for-tva.svg",
     imageAlt: "",
     companiesHeading: "Företag för Två",
-    activities: [
-      {
-        slug: "bergsvandring",
-        title: "Bergsvandring",
-        description: "Bestig Kilimanjaro och mer",
-      },
-      {
-        slug: "safariaventyr",
-        title: "Safariäventyr",
-        description: "The Big Five och allt däremellan",
-      },
-      {
-        slug: "strandsemester",
-        title: "Strandsemester",
-        description: "Vit strand och turkost vatten",
-      },
-      {
-        slug: "paketresor",
-        title: "Paketresor",
-        description: "Färdiga program från start till mål",
-      },
-    ],
+    activities: defaultActivities,
   },
-  { slug: "med-barn", name: "Med Barn" },
+  {
+    slug: "med-barn",
+    name: "Med Barn",
+    label: "ÄVENTYR FÖR ALLA ÅLDRAR",
+    heroText: "Barnvänliga lodger, engagerade guider och minnen för livet",
+    image: "/images/traveler-types/med-barn.svg",
+    imageAlt: "",
+    companiesHeading: "För resor med Barn",
+    activities: defaultActivities,
+  },
   { slug: "pa-egen-hand", name: "På Egen Hand" },
   { slug: "dela-upplevelsen", name: "Dela Upplevelsen" },
 ];
