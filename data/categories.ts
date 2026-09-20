@@ -63,7 +63,17 @@ export const categories: Category[] = [
     companiesHeading: "För resor med Barn",
     activities: defaultActivities,
   },
-  { slug: "pa-egen-hand", name: "På Egen Hand" },
+  {
+    slug: "pa-egen-hand",
+    name: "På Egen Hand",
+    label: "I DIN EGEN TAKT",
+    heroText:
+      "För dig som är fotograf, naturälskare och som bara vill ta det i din egen takt utan att anpassa dig efter andra",
+    image: "/images/traveler-types/pa-egen-hand.svg",
+    imageAlt: "",
+    companiesHeading: "För dig som vill resa på egen hand",
+    activities: defaultActivities,
+  },
   { slug: "dela-upplevelsen", name: "Dela Upplevelsen" },
 ];
 
