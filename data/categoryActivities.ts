@@ -39,6 +39,13 @@ const strandsemester = {
   companiesHeading: "Företag redo att ta emot dig",
 } as const;
 
+const paketresor = {
+  activity: "paketresor",
+  heroText: "Färdiga program från start till mål",
+  imageAlt: "",
+  companiesHeading: "Företag redo att ta emot dig",
+} as const;
+
 // Platshållare tills riktiga foton finns (paret med utsikt / safaribåten).
 const safariForTva = "/images/safariaventyr/for-tva.svg";
 const safariDela = "/images/safariaventyr/dela-upplevelsen.svg";
@@ -151,6 +158,47 @@ export const categoryActivityPages: CategoryActivityPageData[] = [
     heading: "Strandsemester Dela Upplevelsen",
     // Länktexten och sektionsrubriken syns inte i skärmdumpen; härledda ur
     // mönstret för de andra.
+    backLabel: "Tillbaka till resor dela upplevelsen",
+  },
+  {
+    ...paketresor,
+    category: "for-tva",
+    // Platshållare tills riktiga foton finns (par som sitter i ett dimmigt fält).
+    image: "/images/paketresor/for-tva.svg",
+    label: "FÖR TVÅ · PAKETRESOR",
+    heading: "Paketresor För Två",
+    // Länktexten är delvis skymd i skärmdumpen; härledd ur mönstret för de andra.
+    backLabel: "Tillbaka till resor för två",
+  },
+  {
+    ...paketresor,
+    category: "med-barn",
+    // TODO: utkast, ska godkännas av kunden. Texten är härledd ur de andra
+    // sidorna, ingen skärmdump finns. Bilden återanvänder Strandsemester Med Barn.
+    draft: true,
+    image: "/images/strandsemester/med-barn.svg",
+    label: "MED BARN · PAKETRESOR",
+    heading: "Paketresor Med Barn",
+    backLabel: "Tillbaka till resor med barn",
+  },
+  {
+    ...paketresor,
+    category: "pa-egen-hand",
+    // Platshållare tills riktiga foton finns (kvinna i handduk vid fönster).
+    image: "/images/paketresor/pa-egen-hand.svg",
+    label: "PÅ EGEN HAND · PAKETRESOR",
+    heading: "Paketresor På Egen Hand",
+    // Länktexten och sektionsrubriken syns inte i skärmdumpen; härledda ur
+    // mönstret för de andra.
+    backLabel: "Tillbaka till resor på egen hand",
+  },
+  {
+    ...paketresor,
+    category: "dela-upplevelsen",
+    // Platshållare tills riktiga foton finns (vänner runt en lägereld).
+    image: "/images/paketresor/dela-upplevelsen.svg",
+    label: "DELA UPPLEVELSEN · PAKETRESOR",
+    heading: "Paketresor Dela Upplevelsen",
     backLabel: "Tillbaka till resor dela upplevelsen",
   },
 ];

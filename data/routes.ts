@@ -1,4 +1,4 @@
-import { categories } from "./categories";
+import { categories, isCategoryReady } from "./categories";
 import { companies } from "./companies";
 import { categoryActivityPages } from "./categoryActivities";
 
@@ -54,5 +54,24 @@ function assertValidActivityPages() {
   }
 }
 
+// Kategorisidans kort länkar till /{kategori}/{aktivitet} för varje aktivitet.
+// En färdig kategori vars aktivitet saknar sida skulle ge ett kort till en 404.
+function assertEveryActivityHasPage() {
+  const existing = new Set(
+    categoryActivityPages.map((page) => `${page.category}/${page.activity}`),
+  );
+  for (const category of categories.filter(isCategoryReady)) {
+    for (const activity of category.activities) {
+      const key = `${category.slug}/${activity.slug}`;
+      if (!existing.has(key)) {
+        throw new Error(
+          `Aktivitetssidan "${key}" saknas i categoryActivityPages.`,
+        );
+      }
+    }
+  }
+}
+
 assertNoSlugCollisions();
 assertValidActivityPages();
+assertEveryActivityHasPage();

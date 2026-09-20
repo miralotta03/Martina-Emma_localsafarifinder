@@ -1,0 +1,14 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b3026" />
+      <stop offset="100%" stop-color="#171410" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#room)" />
+  <rect x="620" y="200" width="520" height="560" fill="#5f7a5a" opacity="0.8" />
+  <rect x="600" y="180" width="560" height="30" fill="#2a2018" />
+  <rect x="870" y="200" width="20" height="560" fill="#2a2018" />
+  <ellipse cx="960" cy="330" rx="34" ry="42" fill="#c9b8a4" />
+  <path d="M920 900 C 925 420 1010 420 1015 900 Z" fill="#b8b8c0" />
+</svg>
