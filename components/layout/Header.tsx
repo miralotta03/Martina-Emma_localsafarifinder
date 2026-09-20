@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ChevronDownIcon } from "@/components/ui/icons";
 import { MobileMenu } from "./MobileMenu";
+import { NavLinkItem, NavParentButton } from "./NavLinkItem";
 
 export function Header() {
   return (
@@ -31,10 +32,13 @@ export function Header() {
           {nav.map((item) =>
             item.children ? (
               <div key={item.label} className="group relative">
-                <button className="flex items-center gap-1 text-sm font-medium text-ink hover:text-forest">
+                <NavParentButton
+                  href={item.href}
+                  className="flex items-center gap-1 text-sm font-medium text-ink hover:text-forest"
+                >
                   {item.label}
                   <ChevronDownIcon className="h-4 w-4" />
-                </button>
+                </NavParentButton>
                 <div className="invisible absolute top-full left-1/2 z-10 w-56 -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100">
                   <div className="rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
                     {item.children.map((child) => (
@@ -50,13 +54,13 @@ export function Header() {
                 </div>
               </div>
             ) : (
-              <Link
+              <NavLinkItem
                 key={item.href}
                 href={item.href}
                 className="text-sm font-medium text-ink hover:text-forest"
               >
                 {item.label}
-              </Link>
+              </NavLinkItem>
             ),
           )}
         </nav>

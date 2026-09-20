@@ -9,7 +9,7 @@ export function Button({
 }: {
   href: string;
   children: string;
-  variant?: "solid" | "outline";
+  variant?: "solid" | "outline" | "forest";
   className?: string;
 }) {
   const base =
@@ -18,6 +18,7 @@ export function Button({
     solid: "bg-gold text-forest-deep hover:bg-gold-dark",
     outline:
       "border border-cream/40 text-cream hover:border-cream hover:bg-cream/10",
+    forest: "bg-forest text-cream hover:bg-forest-deep",
   };
 
   return (

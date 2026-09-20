@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { NavDropdownLink, NavLink } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
 import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/ui/icons";
+import { NavLinkItem } from "./NavLinkItem";
 
 export function MobileMenu({
   nav,
@@ -67,14 +68,14 @@ export function MobileMenu({
                   )}
                 </div>
               ) : (
-                <Link
+                <NavLinkItem
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className="py-3 text-base font-medium text-ink"
                 >
                   {item.label}
-                </Link>
+                </NavLinkItem>
               ),
             )}
           </nav>
