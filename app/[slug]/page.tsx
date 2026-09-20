@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCategory, isCategoryReady } from "@/data/categories";
+import { getCategoryActivityPage } from "@/data/categoryActivities";
 import { companies } from "@/data/companies";
 import "@/data/routes";
 import { CategoryPage } from "@/components/sections/CategoryPage";
@@ -31,6 +32,11 @@ export default async function SlugPage({
 
   const { aktivitet } = await searchParams;
   const requested = Array.isArray(aktivitet) ? aktivitet[0] : aktivitet;
+  // Aktiviteter med egen sida är inga filter längre: gamla länkar skickas dit.
+  if (requested && getCategoryActivityPage(category.slug, requested)) {
+    redirect(`/${category.slug}/${requested}`);
+  }
+
   // Okända värden ignoreras och ger det oskiftade läget.
   const activeActivity =
     category.activities.find((activity) => activity.slug === requested)?.slug ??

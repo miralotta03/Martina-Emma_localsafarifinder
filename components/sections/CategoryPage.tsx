@@ -5,6 +5,7 @@ import { categoryPageContent, companiesSectionId } from "@/content/kategori";
 import { PageHero } from "./PageHero";
 import { ActivityFilter } from "./ActivityFilter";
 import { CategoryCompanies } from "./CategoryCompanies";
+import { getCategoryActivityPage } from "@/data/categoryActivities";
 
 export function CategoryPage({
   category,
@@ -31,7 +32,11 @@ export function CategoryPage({
         heading={activities.heading}
         cardLink={activities.cardLink}
         showAll={activities.showAll}
-        activities={category.activities}
+        activities={category.activities.map((activity) =>
+          getCategoryActivityPage(category.slug, activity.slug)
+            ? { ...activity, href: `/${category.slug}/${activity.slug}` }
+            : activity,
+        )}
         active={activeActivity}
       />
       <CategoryCompanies
