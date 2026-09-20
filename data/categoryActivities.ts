@@ -32,6 +32,13 @@ const safariaventyr = {
   companiesHeading: "Företag redo att ta emot dig",
 } as const;
 
+const strandsemester = {
+  activity: "strandsemester",
+  heroText: "Vit sand och turkost vatten",
+  imageAlt: "",
+  companiesHeading: "Företag redo att ta emot dig",
+} as const;
+
 // Platshållare tills riktiga foton finns (paret med utsikt / safaribåten).
 const safariForTva = "/images/safariaventyr/for-tva.svg";
 const safariDela = "/images/safariaventyr/dela-upplevelsen.svg";
@@ -104,6 +111,46 @@ export const categoryActivityPages: CategoryActivityPageData[] = [
     label: "DELA UPPLEVELSEN · SAFARIÄVENTYR",
     heading: "Safariäventyr Dela Upplevelsen",
     // Länktexten syns inte i skärmdumpen; härledd ur mönstret för de andra.
+    backLabel: "Tillbaka till resor dela upplevelsen",
+  },
+  {
+    ...strandsemester,
+    category: "for-tva",
+    // Platshållare tills riktiga foton finns (par vid strand i solnedgång).
+    image: "/images/strandsemester/for-tva.svg",
+    label: "FÖR TVÅ · STRANDSEMESTER",
+    heading: "Strandsemester För Två",
+    backLabel: "Tillbaka till resor för två",
+  },
+  {
+    ...strandsemester,
+    category: "med-barn",
+    // Platshållare tills riktiga foton finns (familj på stranden).
+    image: "/images/strandsemester/med-barn.svg",
+    label: "MED BARN · STRANDSEMESTER",
+    heading: "Strandsemester Med Barn",
+    // Länktexten syns inte i skärmdumpen; härledd ur mönstret för de andra.
+    backLabel: "Tillbaka till resor med barn",
+  },
+  {
+    ...strandsemester,
+    category: "pa-egen-hand",
+    // Platshållare tills riktiga foton finns (kvinna med armarna uppsträckta).
+    image: "/images/strandsemester/pa-egen-hand.svg",
+    label: "PÅ EGEN HAND · STRANDSEMESTER",
+    heading: "Strandsemester På Egen Hand",
+    // Länktexten syns inte i skärmdumpen; härledd ur mönstret för de andra.
+    backLabel: "Tillbaka till resor på egen hand",
+  },
+  {
+    ...strandsemester,
+    category: "dela-upplevelsen",
+    // Platshållare tills riktiga foton finns (ben i luften mot turkost hav).
+    image: "/images/strandsemester/dela-upplevelsen.svg",
+    label: "DELA UPPLEVELSEN · STRANDSEMESTER",
+    heading: "Strandsemester Dela Upplevelsen",
+    // Länktexten och sektionsrubriken syns inte i skärmdumpen; härledda ur
+    // mönstret för de andra.
     backLabel: "Tillbaka till resor dela upplevelsen",
   },
 ];
