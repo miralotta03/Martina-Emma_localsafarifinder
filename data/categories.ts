@@ -74,7 +74,17 @@ export const categories: Category[] = [
     companiesHeading: "För dig som vill resa på egen hand",
     activities: defaultActivities,
   },
-  { slug: "dela-upplevelsen", name: "Dela Upplevelsen" },
+  {
+    slug: "dela-upplevelsen",
+    name: "Dela Upplevelsen",
+    label: "ÄVENTYR TILLSAMMANS",
+    heroText:
+      "För dig som vill dela upplevelsen med familj vänner eller andra likasinnade",
+    image: "/images/traveler-types/dela-upplevelsen.svg",
+    imageAlt: "",
+    companiesHeading: "För dig som vill dela upplevelsen",
+    activities: defaultActivities,
+  },
 ];
 
 export type ReadyCategory = Category &

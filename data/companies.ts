@@ -31,10 +31,16 @@ export const companies: Company[] = [
     logo: "/images/companies/smart-escape.svg",
     country: "Tanzania",
     description: "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
-    // TODO: PLATSHÅLLARE. De verkliga kategorierna (for-tva, med-barn,
-    // pa-egen-hand) och aktivitetstyperna för Smart Escapes är inte kända än.
-    // Byt ut när uppgifterna finns.
-    categories: ["for-tva", "med-barn", "pa-egen-hand"],
+    categories: [
+      // TODO: PLATSHÅLLARE. De verkliga kategorierna för Smart Escapes är inte
+      // kända än. Byt ut när uppgifterna finns.
+      "for-tva",
+      "med-barn",
+      "pa-egen-hand",
+      // Verklig data: originalsidan visar Smart Escapes under Dela Upplevelsen.
+      "dela-upplevelsen",
+    ],
+    // TODO: PLATSHÅLLARE. Smart Escapes verkliga aktivitetstyper är inte kända än.
     activityTypes: ["safariaventyr"],
   },
 ];
