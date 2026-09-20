@@ -1,9 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { TravelerType } from "@/lib/types";
 
-export function TravelerTypeCard({ type }: { type: TravelerType }) {
-  return (
-    <article className="relative aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl sm:w-[300px]">
+// Med `href` blir hela kortet en länk, annars visas det som ett vanligt kort.
+export function TravelerTypeCard({
+  type,
+  href,
+}: {
+  type: TravelerType;
+  href?: string;
+}) {
+  const content = (
+    <>
       <Image
         src={type.image}
         alt={type.title}
@@ -16,6 +24,20 @@ export function TravelerTypeCard({ type }: { type: TravelerType }) {
         <h3 className="font-serif text-2xl text-cream">{type.title}</h3>
         <p className="mt-1 text-sm text-cream/85">{type.description}</p>
       </div>
-    </article>
+    </>
+  );
+
+  const className =
+    "relative block aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl sm:w-[300px]";
+
+  return href ? (
+    <Link
+      href={href}
+      className={`${className} focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold`}
+    >
+      {content}
+    </Link>
+  ) : (
+    <article className={className}>{content}</article>
   );
 }

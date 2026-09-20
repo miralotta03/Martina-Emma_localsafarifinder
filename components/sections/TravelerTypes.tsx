@@ -4,6 +4,13 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ArrowLink } from "@/components/ui/Button";
 import { TravelerTypeCard } from "@/components/ui/TravelerTypeCard";
+import { getCategory, isCategoryReady } from "@/data/categories";
+
+// Kategorier utan innehåll har ingen sida än och länkas inte.
+function isLive(slug: string) {
+  const category = getCategory(slug);
+  return Boolean(category && isCategoryReady(category));
+}
 
 export function TravelerTypes() {
   return (
@@ -27,7 +34,11 @@ export function TravelerTypes() {
 
         <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
           {travelerTypes.map((type) => (
-            <TravelerTypeCard key={type.slug} type={type} />
+            <TravelerTypeCard
+              key={type.slug}
+              type={type}
+              href={isLive(type.slug) ? `/${type.slug}` : undefined}
+            />
           ))}
         </div>
       </Container>
