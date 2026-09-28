@@ -19,7 +19,7 @@ export type Category = {
 };
 
 // Aktivitetskorten är gemensamma för kategorierna; en kategori kan skriva över dem.
-const defaultActivities: CategoryActivity[] = [
+export const defaultActivities: CategoryActivity[] = [
   {
     slug: "bergsvandring",
     title: "Bergsvandring",
@@ -102,9 +102,9 @@ export function getCategory(slug: string): Category | undefined {
 export function isCategoryReady(category: Category): category is ReadyCategory {
   return Boolean(
     category.label &&
-      category.heroText &&
-      category.image &&
-      category.companiesHeading &&
-      category.activities?.length,
+    category.heroText &&
+    category.image &&
+    category.companiesHeading &&
+    category.activities?.length,
   );
 }

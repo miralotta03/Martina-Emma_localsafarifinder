@@ -13,6 +13,9 @@ const reservedSlugs = [
   "anvandarvillkor",
   "integritetspolicy",
   "cookiepolicy",
+  "for-foretag",
+  "kontakta-oss",
+  "api",
 ];
 
 // Kategorier och företag delar toppnivå-URL:er (/for-tva, /hec-kilimanjaro-safaris).
@@ -22,13 +25,17 @@ function assertNoSlugCollisions() {
   for (const slug of reservedSlugs) taken.set(slug, "reserverad route");
   for (const { slug } of categories) {
     if (taken.has(slug)) {
-      throw new Error(`Slug "${slug}" (kategori) krockar med ${taken.get(slug)}.`);
+      throw new Error(
+        `Slug "${slug}" (kategori) krockar med ${taken.get(slug)}.`,
+      );
     }
     taken.set(slug, "kategori");
   }
   for (const { slug } of companies) {
     if (taken.has(slug)) {
-      throw new Error(`Slug "${slug}" (företag) krockar med ${taken.get(slug)}.`);
+      throw new Error(
+        `Slug "${slug}" (företag) krockar med ${taken.get(slug)}.`,
+      );
     }
     taken.set(slug, "företag");
   }

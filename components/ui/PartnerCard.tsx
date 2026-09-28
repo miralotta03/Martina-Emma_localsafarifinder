@@ -16,13 +16,20 @@ export function PartnerCard({
       className="group block w-[260px] overflow-hidden rounded-2xl bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[340px] lg:w-[415px]"
     >
       <div className="relative aspect-[8/5] w-full">
-        <Image
-          src={company.logo}
-          alt={`${company.name} – ${company.country}`}
-          fill
-          sizes="(min-width: 1024px) 415px, (min-width: 640px) 340px, 260px"
-          className="object-cover"
-        />
+        {company.logo ? (
+          <Image
+            src={company.logo}
+            alt={`${company.name} – ${company.country}`}
+            fill
+            sizes="(min-width: 1024px) 415px, (min-width: 640px) 340px, 260px"
+            className="object-cover"
+          />
+        ) : (
+          // Ingen logotyp än: företagsnamnet som text i samma ruta.
+          <div className="flex h-full w-full items-center justify-center bg-forest/10 p-6 text-center font-serif text-2xl text-forest">
+            {company.name}
+          </div>
+        )}
       </div>
       <div className="space-y-2 p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">

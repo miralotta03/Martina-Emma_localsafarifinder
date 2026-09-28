@@ -1,13 +1,19 @@
 import type { ActivityTypeSlug, TravelerCategorySlug } from "@/lib/types";
+import type { CompanyProfile } from "./company-profiles/types";
+import { hecKilimanjaroSafarisProfile } from "./company-profiles/hec-kilimanjaro-safaris";
+import { smartEscapesProfile } from "./company-profiles/smart-escapes";
 
 export type Company = {
   slug: string;
   name: string;
-  logo: string;
+  // Valfri: saknas logotypen visas företagsnamnet som text.
+  logo?: string;
   country: string;
   description: string;
   categories: TravelerCategorySlug[];
   activityTypes: ActivityTypeSlug[];
+  // Innehållet på företagets egen sida (/{slug}). Utan profil finns ingen sida.
+  profile?: CompanyProfile;
 };
 
 export const companies: Company[] = [
@@ -24,13 +30,15 @@ export const companies: Company[] = [
       "strandsemester",
       "paketresor",
     ],
+    profile: hecKilimanjaroSafarisProfile,
   },
   {
     slug: "smart-escapes",
     name: "Smart Escape Limited",
     logo: "/images/companies/smart-escape.svg",
     country: "Tanzania",
-    description: "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
+    description:
+      "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
     categories: [
       // TODO: PLATSHÅLLARE. De verkliga kategorierna för Smart Escapes är inte
       // kända än. Byt ut när uppgifterna finns.
@@ -40,7 +48,20 @@ export const companies: Company[] = [
       // Verklig data: originalsidan visar Smart Escapes under Dela Upplevelsen.
       "dela-upplevelsen",
     ],
-    // TODO: PLATSHÅLLARE. Smart Escapes verkliga aktivitetstyper är inte kända än.
-    activityTypes: ["safariaventyr"],
+    // Verklig data: originalsidan anger dessa tre.
+    activityTypes: ["safariaventyr", "strandsemester", "paketresor"],
+    profile: smartEscapesProfile,
   },
 ];
+
+export type CompanyWithProfile = Company & { profile: CompanyProfile };
+
+export const companiesWithProfile = companies.filter(
+  (company): company is CompanyWithProfile => Boolean(company.profile),
+);
+
+export function getCompanyWithProfile(
+  slug: string,
+): CompanyWithProfile | undefined {
+  return companiesWithProfile.find((company) => company.slug === slug);
+}
