@@ -3,6 +3,15 @@ import type { CompanyProfile } from "./company-profiles/types";
 import { hecKilimanjaroSafarisProfile } from "./company-profiles/hec-kilimanjaro-safaris";
 import { smartEscapesProfile } from "./company-profiles/smart-escapes";
 
+// Vart företaget kör resor (inte var det sitter, se profile.region).
+// `slug` är stadens värde i sök-URL:en, t.ex. /sok?destination=tanzania-moshi.
+// Landets värde härleds från `country` (se lib/search.ts).
+export type Destination = {
+  country: string;
+  city: string;
+  slug: string;
+};
+
 export type Company = {
   slug: string;
   name: string;
@@ -12,6 +21,7 @@ export type Company = {
   description: string;
   categories: TravelerCategorySlug[];
   activityTypes: ActivityTypeSlug[];
+  destinations: Destination[];
   // Innehållet på företagets egen sida (/{slug}). Utan profil finns ingen sida.
   profile?: CompanyProfile;
 };
@@ -29,6 +39,11 @@ export const companies: Company[] = [
       "safariaventyr",
       "strandsemester",
       "paketresor",
+    ],
+    // TODO: PLATSHÅLLARE, utgår från region (Moshi, Tanzania). Ska bekräftas
+    // av kunden.
+    destinations: [
+      { country: "Tanzania", city: "Moshi", slug: "tanzania-moshi" },
     ],
     profile: hecKilimanjaroSafarisProfile,
   },
@@ -50,6 +65,11 @@ export const companies: Company[] = [
     ],
     // Verklig data: originalsidan anger dessa tre.
     activityTypes: ["safariaventyr", "strandsemester", "paketresor"],
+    // TODO: PLATSHÅLLARE, utgår från region (Morogoro, Tanzania). Ska
+    // bekräftas av kunden.
+    destinations: [
+      { country: "Tanzania", city: "Morogoro", slug: "tanzania-morogoro" },
+    ],
     profile: smartEscapesProfile,
   },
 ];

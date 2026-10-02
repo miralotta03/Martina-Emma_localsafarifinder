@@ -153,3 +153,41 @@ export function CheckIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+export function UserIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <circle cx="12" cy="8" r="3.8" stroke="currentColor" strokeWidth={1.5} />
+      <path
+        d="M4.5 20.5c.8-3.8 3.9-6 7.5-6s6.7 2.2 7.5 6"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function CompassIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth={1.5} />
+      <path
+        d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1 5.1-2.1z"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

@@ -1,6 +1,7 @@
 import { categories, isCategoryReady } from "./categories";
 import { companies } from "./companies";
 import { categoryActivityPages } from "./categoryActivities";
+import { countrySlug } from "@/lib/search";
 
 // Toppnivå-URL:er som redan är upptagna av statiska routes eller av sidor som
 // header/footer länkar till. Statiska mappar vinner tyst över [slug], så ett
@@ -16,6 +17,7 @@ const reservedSlugs = [
   "for-foretag",
   "kontakta-oss",
   "api",
+  "sok",
 ];
 
 // Kategorier och företag delar toppnivå-URL:er (/for-tva, /hec-kilimanjaro-safaris).
@@ -79,6 +81,39 @@ function assertEveryActivityHasPage() {
   }
 }
 
+// Destinationernas slugs blir värden i /sok?destination=…. Samma slug måste
+// alltid betyda samma land och stad, och en stad får inte krocka med ett land.
+function assertValidDestinations() {
+  const cities = new Map<string, string>();
+  const countries = new Set<string>();
+  for (const company of companies) {
+    for (const destination of company.destinations) {
+      const place = `${destination.country} – ${destination.city}`;
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(destination.slug)) {
+        throw new Error(
+          `Destinationen "${place}" (${company.slug}) har en ogiltig slug "${destination.slug}".`,
+        );
+      }
+      const existing = cities.get(destination.slug);
+      if (existing && existing !== place) {
+        throw new Error(
+          `Destinationens slug "${destination.slug}" används för både "${existing}" och "${place}".`,
+        );
+      }
+      cities.set(destination.slug, place);
+      countries.add(countrySlug(destination));
+    }
+  }
+  for (const slug of cities.keys()) {
+    if (countries.has(slug)) {
+      throw new Error(
+        `Destinationens slug "${slug}" krockar med ett lands slug.`,
+      );
+    }
+  }
+}
+
 assertNoSlugCollisions();
 assertValidActivityPages();
 assertEveryActivityHasPage();
+assertValidDestinations();

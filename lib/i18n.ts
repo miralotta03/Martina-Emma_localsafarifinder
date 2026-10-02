@@ -24,3 +24,13 @@ export function tp(
 ): string[] {
   return value[locale] ?? value.sv;
 }
+
+// Fyller i {namn} i en text, t.ex. format("{count} företag", { count: 3 }).
+export function format(
+  template: string,
+  values: Record<string, string | number>,
+): string {
+  return template.replace(/\{(\w+)\}/g, (match, key: string) =>
+    key in values ? String(values[key]) : match,
+  );
+}
