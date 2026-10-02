@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CategoryActivity } from "@/data/categories";
 import { Container } from "@/components/ui/Container";
@@ -39,6 +40,18 @@ export function ActivityCards({
                 href={activity.href}
                 className="flex h-full w-full flex-col rounded-3xl border-2 border-forest/5 bg-white/60 p-8 transition-colors hover:border-gold/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
+                {/* Valfri bild överst; utan bild är kortet ett rent textkort. */}
+                {activity.image && (
+                  <span className="relative -mx-8 -mt-8 mb-6 block aspect-[4/3] overflow-hidden rounded-t-[22px]">
+                    <Image
+                      src={activity.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </span>
+                )}
                 <span className="font-serif text-xl text-forest lg:text-2xl">
                   {activity.title}
                 </span>

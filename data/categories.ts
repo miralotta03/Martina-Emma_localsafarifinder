@@ -4,6 +4,8 @@ export type CategoryActivity = {
   slug: ActivityTypeSlug;
   title: string;
   description: string;
+  // Valfri: utan bild visas kortet som rent textkort.
+  image?: string;
 };
 
 export type Category = {
@@ -42,16 +44,27 @@ export const defaultActivities: CategoryActivity[] = [
   },
 ];
 
+// För Två har egna bilder på aktivitetskorten.
+const forTvaActivityImages: Partial<Record<ActivityTypeSlug, string>> = {
+  bergsvandring: "/categories/for-tva/bergsvandring.jpg",
+  safariaventyr: "/categories/for-tva/safariaventyr.jpg",
+  strandsemester: "/categories/for-tva/strandsemester.jpg",
+  paketresor: "/categories/for-tva/paketresor.jpg",
+};
+
 export const categories: Category[] = [
   {
     slug: "for-tva",
     name: "För Två",
     label: "ROMANTIK, SMEKMÅNAD, LYX...",
     heroText: "Lugna, privata och hänförande - safaris skapade för två.",
-    image: "/images/traveler-types/for-tva.svg",
+    image: "/categories/for-tva/hero.jpg",
     imageAlt: "",
     companiesHeading: "Företag för Två",
-    activities: defaultActivities,
+    activities: defaultActivities.map((activity) => ({
+      ...activity,
+      image: forTvaActivityImages[activity.slug],
+    })),
   },
   {
     slug: "med-barn",
