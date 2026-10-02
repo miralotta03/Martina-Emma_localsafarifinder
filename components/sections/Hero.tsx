@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { hero } from "@/content/site";
+import { searchFormOptions } from "@/data/search";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { ArrowLink } from "@/components/ui/Button";
+import { SearchForm } from "@/components/search/SearchForm";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[640px] items-center overflow-hidden bg-forest-deep lg:min-h-[760px]">
+    // Ingen overflow-hidden: sökfältens listor får gå utanför heron.
+    <section className="relative flex min-h-[640px] items-center bg-forest-deep lg:min-h-[760px]">
       <Image
         src={hero.image}
         alt=""
@@ -34,10 +37,16 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-base text-cream/85 sm:text-lg">
             {hero.body}
           </p>
-          <Button href={hero.cta.href} className="mt-8">
-            {hero.cta.label}
-          </Button>
         </div>
+        <div className="mt-10 max-w-4xl">
+          <SearchForm options={searchFormOptions} />
+        </div>
+        <ArrowLink
+          href={hero.cta.href}
+          className="mt-6 text-cream hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+        >
+          {hero.cta.label}
+        </ArrowLink>
       </Container>
     </section>
   );

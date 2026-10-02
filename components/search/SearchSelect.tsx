@@ -115,7 +115,7 @@ function ComboboxSelect({
   const labelId = `${id}-label`;
   const listId = `${id}-listbox`;
 
-  function renderOption(option: SelectOption) {
+  function renderOption(option: SelectOption, indented = false) {
     const index = options.indexOf(option);
     const isSelected = index === selectedIndex;
     return (
@@ -126,7 +126,7 @@ function ComboboxSelect({
         aria-selected={isSelected}
         onClick={() => listbox.choose(index)}
         onMouseMove={() => listbox.setActive(index)}
-        className={`${optionClass} justify-between ${
+        className={`${optionClass} justify-between ${indented ? "pl-7" : ""} ${
           index === listbox.active ? "bg-forest/10" : ""
         } ${isSelected ? "font-medium text-forest" : ""}`}
       >
@@ -185,10 +185,10 @@ function ComboboxSelect({
               >
                 {group.label}
               </div>
-              {group.options.map(renderOption)}
+              {group.options.map((option) => renderOption(option, true))}
             </div>
           ) : (
-            group.options.map(renderOption)
+            group.options.map((option) => renderOption(option))
           ),
         )}
       </div>
