@@ -5,7 +5,7 @@ export const travelerTypes: TravelerType[] = [
     slug: "for-tva",
     title: "För två",
     description: "Romantiska resor och oförglömliga upplevelser för två",
-    image: "/images/traveler-types/for-tva.svg",
+    image: "/categories/for-tva/hero.jpg",
   },
   {
     slug: "med-barn",
