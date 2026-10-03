@@ -9,6 +9,13 @@ import {
   type ExperienceType,
   type TravelStyle,
 } from "@/lib/inquiry/schema";
+import { collectFieldErrors, focusFirstInvalid } from "@/lib/forms";
+import {
+  errorClass,
+  fieldClass,
+  labelClass,
+  submitClass,
+} from "@/components/forms/formStyles";
 
 // Etiketter/platshållare för fälten vars innehåll inte syns i skärmdumparna
 // (rullgardinens alternativ) eller som inte finns där alls (tack-/felläge).
@@ -28,11 +35,6 @@ const experienceLabels: Record<ExperienceType, string> = {
 };
 
 type Status = "idle" | "submitting" | "success" | "error";
-
-const fieldClass =
-  "w-full rounded-xl border border-forest/15 bg-cream px-4 py-3 text-sm text-ink placeholder:text-ink/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
-const labelClass = "text-sm font-medium text-forest";
-const errorClass = "mt-1 text-sm text-red-700";
 
 export function ContactForm({
   companySlug,
@@ -69,17 +71,9 @@ export function ContactForm({
 
     const result = inquirySchema.safeParse(payload);
     if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      for (const issue of result.error.issues) {
-        const key = String(issue.path[0]);
-        if (!fieldErrors[key]) fieldErrors[key] = issue.message;
-      }
-      setErrors(fieldErrors);
+      setErrors(collectFieldErrors(result.error));
       setStatus("error");
-      const firstErrorField = form.querySelector<HTMLElement>(
-        "[aria-invalid='true']",
-      );
-      firstErrorField?.focus();
+      focusFirstInvalid(form);
       return;
     }
 
@@ -381,7 +375,7 @@ export function ContactForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full cursor-pointer rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-forest-deep disabled:cursor-not-allowed disabled:opacity-60"
+        className={`w-full ${submitClass}`}
       >
         {status === "submitting" ? "Skickar …" : "Skicka"}
       </button>

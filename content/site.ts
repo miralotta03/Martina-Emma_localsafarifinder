@@ -140,7 +140,7 @@ export const footerColumns: FooterLinkColumn[] = [
     heading: "Kundservice",
     links: [
       { label: "Om oss", href: "/om-oss" },
-      { label: "Kontakta oss", href: "/kontakt" },
+      { label: "Kontakta oss", href: "/kontakta-oss" },
       { label: "Bli Partner", href: "/bli-partner" },
       { label: "Användarvillkor", href: "/anvandarvillkor" },
       { label: "Integritetspolicy", href: "/integritetspolicy" },

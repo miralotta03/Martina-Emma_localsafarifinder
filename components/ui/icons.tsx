@@ -191,3 +191,31 @@ export function CompassIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+export function MailIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <rect
+        x="3.5"
+        y="5.5"
+        width="17"
+        height="13"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      />
+      <path
+        d="M4 7l8 6 8-6"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
