@@ -13,7 +13,7 @@ export const experienceCategories = {
       title: "För Två",
       description: "Lugna, privata och hänförande upplevelser skapade för två",
       href: "/for-tva",
-      image: "/images/traveler-types/for-tva.svg",
+      image: "/categories/for-tva/hero.jpg",
     },
     {
       title: "Med Barn",
