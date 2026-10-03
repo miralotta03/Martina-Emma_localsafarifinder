@@ -12,7 +12,7 @@ export const travelerTypes: TravelerType[] = [
     title: "Med barn",
     description:
       "Skapa minnen tillsammans med upplevelser för alla familjemedlemmar.",
-    image: "/images/traveler-types/med-barn.svg",
+    image: "/categories/med-barn/hero.jpg",
   },
   {
     slug: "pa-egen-hand",

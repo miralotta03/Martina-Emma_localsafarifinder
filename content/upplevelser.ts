@@ -19,7 +19,7 @@ export const experienceCategories = {
       title: "Med Barn",
       description: "Barnvänliga lodger, engagerade guider och minnen för livet",
       href: "/med-barn",
-      image: "/images/traveler-types/med-barn.svg",
+      image: "/categories/med-barn/hero.jpg",
     },
     {
       title: "På Egen Hand",

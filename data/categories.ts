@@ -44,13 +44,14 @@ export const defaultActivities: CategoryActivity[] = [
   },
 ];
 
-// För Två har egna bilder på aktivitetskorten.
-const forTvaActivityImages: Partial<Record<ActivityTypeSlug, string>> = {
-  bergsvandring: "/categories/for-tva/bergsvandring.jpg",
-  safariaventyr: "/categories/for-tva/safariaventyr.jpg",
-  strandsemester: "/categories/for-tva/strandsemester.jpg",
-  paketresor: "/categories/for-tva/paketresor.jpg",
-};
+// Aktivitetskort med bild från public/categories/{kategori}/{aktivitet}.jpg.
+// Används bara för kategorier som har alla bilder på plats.
+function withActivityImages(categorySlug: TravelerCategorySlug) {
+  return defaultActivities.map((activity) => ({
+    ...activity,
+    image: `/categories/${categorySlug}/${activity.slug}.jpg`,
+  }));
+}
 
 export const categories: Category[] = [
   {
@@ -61,20 +62,17 @@ export const categories: Category[] = [
     image: "/categories/for-tva/hero.jpg",
     imageAlt: "",
     companiesHeading: "Företag för Två",
-    activities: defaultActivities.map((activity) => ({
-      ...activity,
-      image: forTvaActivityImages[activity.slug],
-    })),
+    activities: withActivityImages("for-tva"),
   },
   {
     slug: "med-barn",
     name: "Med Barn",
     label: "ÄVENTYR FÖR ALLA ÅLDRAR",
     heroText: "Barnvänliga lodger, engagerade guider och minnen för livet",
-    image: "/images/traveler-types/med-barn.svg",
+    image: "/categories/med-barn/hero.jpg",
     imageAlt: "",
     companiesHeading: "För resor med Barn",
-    activities: defaultActivities,
+    activities: withActivityImages("med-barn"),
   },
   {
     slug: "pa-egen-hand",
