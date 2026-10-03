@@ -1,4 +1,5 @@
 import type { ActivityTypeSlug, TravelerCategorySlug } from "@/lib/types";
+import { getCategory } from "./categories";
 
 export type CategoryActivityPageData = {
   category: TravelerCategorySlug;
@@ -50,7 +51,7 @@ const paketresor = {
 const safariForTva = "/images/safariaventyr/for-tva.svg";
 const safariDela = "/images/safariaventyr/dela-upplevelsen.svg";
 
-export const categoryActivityPages: CategoryActivityPageData[] = [
+const pages: CategoryActivityPageData[] = [
   {
     ...bergsvandring,
     category: "for-tva",
@@ -202,6 +203,17 @@ export const categoryActivityPages: CategoryActivityPageData[] = [
     backLabel: "Tillbaka till resor dela upplevelsen",
   },
 ];
+
+// Har kategorisidans kort för aktiviteten en bild (data/categories.ts) blir
+// den också sidans hero, så att kortet och sidan alltid visar samma bild.
+export const categoryActivityPages: CategoryActivityPageData[] = pages.map(
+  (page) => {
+    const cardImage = getCategory(page.category)?.activities?.find(
+      (activity) => activity.slug === page.activity,
+    )?.image;
+    return cardImage ? { ...page, image: cardImage } : page;
+  },
+);
 
 export function getCategoryActivityPage(
   category: string,
