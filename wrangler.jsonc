@@ -1,0 +1,23 @@
+// Cloudflare Worker för Local Safari Finder, byggd med @opennextjs/cloudflare.
+// Inga hemligheter här: körtidsvariabler läggs i Cloudflares dashboard
+// (Settings → Variables and Secrets), lokalt i .env.local. Se .env.example.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "local-safari-finder",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-06",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // next/image optimeras via Cloudflare Images. Gratisplanen: 5 000 unika
+  // transformationer per månad, debiteras aldrig (över gränsen ger nya
+  // transformationer fel 9422 i stället).
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

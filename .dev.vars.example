@@ -1,0 +1,6 @@
+# Kopiera till .dev.vars (ignoreras av git) för att testa Cloudflare-versionen
+# lokalt med `npm run preview`. Talar om för adaptern att läsa Next.js
+# .env-filer för utveckling (t.ex. .env.local).
+#
+# Lägg INTE riktiga värden här, utan i .env.local (se .env.example).
+NEXTJS_ENV=development
