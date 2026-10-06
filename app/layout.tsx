@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
+import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -16,6 +17,9 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
+
+// Bakas in vid bygget (NEXT_PUBLIC_), se .env.example.
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 
 export const metadata: Metadata = {
   title: "Local Safari Finder – Hitta en lokal safari i Afrika",
@@ -34,6 +38,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      {/* Umami-statistik på alla sidor. Laddas bara när website-ID:t finns,
+          så lokal utveckling utan ID skickar ingen statistik. */}
+      {umamiWebsiteId && (
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id={umamiWebsiteId}
+          strategy="afterInteractive"
+        />
+      )}
     </html>
   );
 }
