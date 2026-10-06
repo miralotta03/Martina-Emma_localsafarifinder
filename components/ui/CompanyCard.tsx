@@ -18,7 +18,7 @@ export function CompanyCard({ company }: { company: Company }) {
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-serif text-xl text-forest">{company.name}</h3>
           <ArrowLink
-            href={`/foretag/${company.slug}`}
+            href={`/${company.slug}`}
             className="shrink-0 pt-1 text-xs font-semibold tracking-wide text-gold uppercase"
           >
             Läs mer

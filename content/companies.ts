@@ -32,7 +32,7 @@ export const travelerTypes: TravelerType[] = [
 
 export const companies: Company[] = [
   {
-    slug: "smart-escape-limited",
+    slug: "smart-escapes",
     name: "Smart Escape Limited",
     country: "Tanzania",
     description: "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
@@ -40,7 +40,7 @@ export const companies: Company[] = [
     categories: ["for-tva", "med-barn", "pa-egen-hand", "dela-upplevelsen"],
   },
   {
-    slug: "hec-kilimanjaro-safari",
+    slug: "hec-kilimanjaro-safaris",
     name: "HEC Kilimanjaro Safari LTD",
     country: "Tanzania",
     description: "Personliga bergsvandringar för äventyrliga själar",
