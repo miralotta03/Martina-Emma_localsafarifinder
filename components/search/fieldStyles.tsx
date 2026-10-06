@@ -10,13 +10,19 @@ export const popupClass =
   "absolute inset-x-0 top-full z-30 mt-2 max-h-72 overflow-y-auto rounded-xl border border-forest/15 bg-cream py-2 shadow-xl";
 
 export const optionClass =
-  "flex cursor-pointer items-center gap-3 px-4 py-2.5 text-sm text-ink";
+  "flex min-h-11 cursor-pointer items-center gap-3 px-4 py-2.5 text-sm text-ink";
 
 export const groupLabelClass =
   "px-4 pt-3 pb-1 text-xs font-semibold tracking-[0.15em] text-ink/70 uppercase";
 
 // Ikonen till vänster och pilen till höger, ovanpå fältet.
-export function FieldDecor({ icon, open }: { icon: ReactNode; open?: boolean }) {
+export function FieldDecor({
+  icon,
+  open,
+}: {
+  icon: ReactNode;
+  open?: boolean;
+}) {
   return (
     <>
       <span className="pointer-events-none absolute top-0 left-4 flex h-14 items-center text-forest [&>svg]:h-5 [&>svg]:w-5">

@@ -40,10 +40,16 @@ export function NavLinkItem({
 // Knappen som öppnar en undermeny (Upplevelser) markeras när någon sida under den är aktiv.
 export function NavParentButton({
   hrefs,
+  expanded,
+  controls,
+  onClick,
   className = "",
   children,
 }: {
   hrefs: string[];
+  expanded: boolean;
+  controls: string;
+  onClick: () => void;
   className?: string;
   children: ReactNode;
 }) {
@@ -52,7 +58,11 @@ export function NavParentButton({
 
   return (
     <button
+      type="button"
       aria-current={active ? "true" : undefined}
+      aria-expanded={expanded}
+      aria-controls={controls}
+      onClick={onClick}
       className={`${className} ${active ? activeStyle : ""}`}
     >
       {children}

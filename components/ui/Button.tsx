@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "./icons";
+import { touchTarget } from "./touchTarget";
 
 export function Button({
   href,
@@ -41,7 +42,7 @@ export function ArrowLink({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all ${className}`}
+      className={`inline-flex items-center gap-2 text-sm font-medium transition-all hover:gap-3 ${touchTarget} ${className}`}
     >
       {children}
       <ArrowRightIcon className="h-4 w-4" />

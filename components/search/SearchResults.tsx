@@ -99,12 +99,13 @@ export function SearchResults({
               >
                 {chips.map((chip) => (
                   <li key={chip.key}>
+                    {/* ::after ger 44 px hög tryckyta utan att chipet växer. */}
                     <Link
                       href={chip.href}
                       aria-label={format(t(results.removeFilter), {
                         label: chip.label,
                       })}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-cream py-1.5 pr-2.5 pl-4 text-sm text-forest transition-colors hover:border-forest/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                      className="relative inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-cream py-1.5 pr-2.5 pl-4 after:absolute after:inset-x-0 after:-inset-y-[5px] after:content-[''] text-sm text-forest transition-colors hover:border-forest/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                     >
                       {chip.label}
                       <CloseIcon className="h-4 w-4" />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import type { NavDropdownLink, NavLink } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
@@ -16,13 +16,35 @@ export function MobileMenu({
 }) {
   const [open, setOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const menuId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  // Medan menyn är öppen: sidan bakom ska inte scrolla, och Esc stänger.
+  useEffect(() => {
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   return (
     <div className="lg:hidden">
       <button
+        ref={toggleRef}
         aria-label={open ? "Stäng meny" : "Öppna meny"}
+        aria-expanded={open}
+        aria-controls={menuId}
         onClick={() => setOpen((v) => !v)}
-        className="p-1 text-forest"
+        className="-mr-1 flex h-11 w-11 items-center justify-center text-forest"
       >
         {open ? (
           <CloseIcon className="h-7 w-7" />
@@ -32,12 +54,17 @@ export function MobileMenu({
       </button>
 
       {open && (
-        <div className="fixed inset-x-0 top-[73px] bottom-0 z-40 overflow-y-auto bg-cream px-6 py-6">
+        // Börjar precis under headern (80 px, 88 px från sm).
+        <div
+          id={menuId}
+          className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-cream px-6 py-6 sm:top-22"
+        >
           <nav className="flex flex-col gap-1">
             {nav.map((item) =>
               item.children ? (
                 <div key={item.label}>
                   <button
+                    aria-expanded={openSubmenu === item.label}
                     onClick={() =>
                       setOpenSubmenu((cur) =>
                         cur === item.label ? null : item.label,
@@ -59,7 +86,7 @@ export function MobileMenu({
                           key={child.href}
                           href={child.href}
                           onClick={() => setOpen(false)}
-                          className="py-2.5 text-sm text-ink/80"
+                          className="py-3 text-sm text-ink/80"
                         >
                           {child.label}
                         </Link>
@@ -79,9 +106,12 @@ export function MobileMenu({
               ),
             )}
           </nav>
-          <Button href={cta.href} className="mt-6 w-full justify-center">
-            {cta.label}
-          </Button>
+          {/* Länkarna navigerar inom samma layout, så menyn stängs vid klick. */}
+          <div onClick={() => setOpen(false)}>
+            <Button href={cta.href} className="mt-6 w-full justify-center">
+              {cta.label}
+            </Button>
+          </div>
         </div>
       )}
     </div>
