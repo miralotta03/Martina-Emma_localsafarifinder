@@ -59,12 +59,21 @@ export function NavDropdown({
         className={`flex cursor-pointer items-center gap-1 text-sm font-medium text-ink hover:text-forest ${touchTarget}`}
       >
         {label}
-        <ChevronDownIcon className="h-4 w-4" />
+        {/* Pilen vänds när menyn är öppen (hover, tap eller tangentbord). */}
+        <ChevronDownIcon
+          className={`h-4 w-4 transition-[rotate] duration-200 ease-out group-hover:rotate-180 motion-reduce:transition-none ${
+            open ? "rotate-180" : ""
+          }`}
+        />
       </NavParentButton>
+      {/* Panelen tonar in och glider ner; visibility gör den oklickbar och
+          osynlig för skärmläsare när den är stängd. */}
       <div
         id={panelId}
-        className={`absolute top-full left-1/2 z-10 w-56 -translate-x-1/2 pt-3 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 ${
-          open ? "visible opacity-100" : "invisible opacity-0"
+        className={`absolute top-full left-1/2 z-10 w-56 -translate-x-1/2 pt-3 transition-[opacity,translate,visibility] duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none ${
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-1 opacity-0"
         }`}
       >
         <div className="rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">

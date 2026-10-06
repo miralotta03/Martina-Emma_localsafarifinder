@@ -10,6 +10,7 @@ import {
   groupLabelClass,
   optionClass,
   popupClass,
+  popupState,
 } from "./fieldStyles";
 
 export type SelectOption = {
@@ -37,7 +38,7 @@ export function SearchSelect(props: Props) {
   const nativeId = `${id}-native`;
 
   return (
-    <div className="relative">
+    <div className="group/field relative">
       {hydrated ? (
         <ComboboxSelect {...props} id={id} nativeId={nativeId} />
       ) : (
@@ -166,18 +167,13 @@ function ComboboxSelect({
         id={listId}
         role="listbox"
         aria-labelledby={labelId}
-        hidden={!listbox.open}
         onMouseDown={(event) => event.preventDefault()}
-        className={popupClass}
+        className={`${popupClass} ${popupState(listbox.open)}`}
       >
         {renderOption(allOption)}
         {groups.map((group, g) =>
           group.label ? (
-            <div
-              key={g}
-              role="group"
-              aria-labelledby={`${id}-group-${g}`}
-            >
+            <div key={g} role="group" aria-labelledby={`${id}-group-${g}`}>
               <div
                 id={`${id}-group-${g}`}
                 role="presentation"

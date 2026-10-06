@@ -15,7 +15,19 @@ export const optionClass =
 export const groupLabelClass =
   "px-4 pt-3 pb-1 text-xs font-semibold tracking-[0.15em] text-ink/70 uppercase";
 
-// Ikonen till vänster och pilen till höger, ovanpå fältet.
+// Listan tonar in och glider ner när den öppnas, och tonar ut när den stängs.
+// (visibility: hidden gör att den stängda listan varken syns, kan klickas på
+// eller läses upp, precis som med hidden-attributet.)
+export function popupState(open: boolean) {
+  return `transition-[opacity,translate,visibility] duration-200 ease-out motion-reduce:transition-none ${
+    open
+      ? "visible opacity-100"
+      : "pointer-events-none invisible -translate-y-1 opacity-0"
+  }`;
+}
+
+// Ikonen till vänster och pilen till höger, ovanpå fältet. Pilen glider ner
+// lite när musen är över fältet (group/field på fältets omslag).
 export function FieldDecor({
   icon,
   open,
@@ -29,7 +41,7 @@ export function FieldDecor({
         {icon}
       </span>
       <ChevronDownIcon
-        className={`pointer-events-none absolute top-[18px] right-4 h-5 w-5 text-forest/70 transition-transform ${
+        className={`pointer-events-none absolute top-[18px] right-4 h-5 w-5 text-forest/70 transition-[rotate,translate,color] duration-200 ease-out group-hover/field:translate-y-0.5 group-hover/field:text-forest motion-reduce:transition-none ${
           open ? "rotate-180" : ""
         }`}
       />

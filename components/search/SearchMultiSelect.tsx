@@ -6,7 +6,13 @@ import { CheckIcon } from "@/components/ui/icons";
 import { useHydrated } from "./useHydrated";
 import { useListbox } from "./useListbox";
 import type { SelectOption } from "./SearchSelect";
-import { FieldDecor, fieldClass, optionClass, popupClass } from "./fieldStyles";
+import {
+  FieldDecor,
+  fieldClass,
+  optionClass,
+  popupClass,
+  popupState,
+} from "./fieldStyles";
 
 type Props = {
   name: string;
@@ -54,7 +60,7 @@ export function SearchMultiSelect(props: Props) {
   );
 
   return (
-    <div className={`relative ${props.className ?? ""}`}>
+    <div className={`group/field relative ${props.className ?? ""}`}>
       {hydrated ? (
         <ComboboxMultiSelect {...props} id={id} nativeId={nativeId} />
       ) : (
@@ -103,9 +109,9 @@ function ComboboxMultiSelect({
   const [values, setValues] = useState<string[]>(() => {
     const native = document.getElementById(nativeId);
     if (!native) return defaultValue ?? [];
-    return [
-      ...native.querySelectorAll<HTMLInputElement>("input:checked"),
-    ].map((input) => input.value);
+    return [...native.querySelectorAll<HTMLInputElement>("input:checked")].map(
+      (input) => input.value,
+    );
   });
 
   const optionIds = options.map((_, i) => `${id}-option-${i}`);
@@ -164,9 +170,8 @@ function ComboboxMultiSelect({
         role="listbox"
         aria-labelledby={labelId}
         aria-multiselectable="true"
-        hidden={!listbox.open}
         onMouseDown={(event) => event.preventDefault()}
-        className={popupClass}
+        className={`${popupClass} ${popupState(listbox.open)}`}
       >
         {options.map((option, index) => {
           const isSelected = values.includes(option.value);

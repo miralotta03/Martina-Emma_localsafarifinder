@@ -39,6 +39,55 @@ body {
   display: none;
 }
 
+/* Gör att höjden kan animeras till/från `auto` (FAQ-svaren). Webbläsare som
+   inte stöder det öppnar direkt, som förut. */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* FAQ (<details>): svaret glider ut på höjden och tonar in. */
+.faq-item::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition:
+    block-size 300ms ease,
+    content-visibility 300ms allow-discrete;
+}
+
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+
+.faq-item[open] .faq-answer {
+  animation: fade-in 300ms ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Uppifrån och in, för t.ex. mobilmenyn. */
+@keyframes slide-down-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content {
+    transition: none;
+  }
+
+  .faq-item[open] .faq-answer {
+    animation: none;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

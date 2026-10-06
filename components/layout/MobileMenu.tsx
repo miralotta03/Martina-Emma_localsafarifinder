@@ -57,7 +57,7 @@ export function MobileMenu({
         // Börjar precis under headern (80 px, 88 px från sm).
         <div
           id={menuId}
-          className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-cream px-6 py-6 sm:top-22"
+          className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-cream px-6 py-6 motion-safe:animate-[slide-down-in_200ms_ease-out] sm:top-22"
         >
           <nav className="flex flex-col gap-1">
             {nav.map((item) =>
@@ -74,25 +74,36 @@ export function MobileMenu({
                   >
                     {item.label}
                     <ChevronDownIcon
-                      className={`h-5 w-5 transition-transform ${
+                      className={`h-5 w-5 transition-[rotate] duration-200 ease-out motion-reduce:transition-none ${
                         openSubmenu === item.label ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-                  {openSubmenu === item.label && (
-                    <div className="flex flex-col gap-1 border-l border-forest/15 pl-4">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setOpen(false)}
-                          className="py-3 text-sm text-ink/80"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                  {/* Fälls ut på höjden (0fr → 1fr). Stängd är den inert, så
+                      länkarna varken syns, går att tabba till eller läses upp. */}
+                  <div
+                    inert={openSubmenu !== item.label}
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                      openSubmenu === item.label
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="flex flex-col gap-1 border-l border-forest/15 pl-4">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setOpen(false)}
+                            className="py-3 text-sm text-ink/80"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ) : (
                 <NavLinkItem

@@ -25,14 +25,19 @@ export function Faq() {
               {items.map((item) => (
                 <details
                   key={item.question}
-                  className="group rounded-2xl bg-forest text-cream"
+                  // faq-item: mjuk öppning/stängning (globals.css).
+                  className="faq-item group rounded-2xl bg-forest text-cream"
                 >
                   {/* Utfyllnaden ligger på summary, så att hela raden är tryckbar. */}
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 marker:content-none">
+                  <summary className="group/summary flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 marker:content-none">
                     <span className="font-medium">{item.question}</span>
-                    <ChevronDownIcon className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" />
+                    {/* Pilen får en rund bakgrund och glider ner vid hover;
+                        -m-1.5 gör att den tar lika stor plats som förut. */}
+                    <span className="-m-1.5 flex shrink-0 rounded-full p-1.5 transition-colors duration-200 group-hover/summary:bg-cream/10">
+                      <ChevronDownIcon className="h-5 w-5 transition-[rotate,translate] duration-200 ease-out group-open:rotate-180 group-hover/summary:translate-y-0.5 motion-reduce:transition-none" />
+                    </span>
                   </summary>
-                  <p className="-mt-1 px-6 pb-6 text-sm text-cream/80">
+                  <p className="faq-answer -mt-1 px-6 pb-6 text-sm text-cream/80">
                     {item.answer}
                   </p>
                 </details>
