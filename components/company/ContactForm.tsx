@@ -299,7 +299,7 @@ export function ContactForm({
           {experienceTypes.map((type) => (
             <label
               key={type}
-              className="flex items-center gap-2 text-sm text-ink"
+              className="flex min-h-11 items-center gap-2 text-sm text-ink sm:min-h-0"
             >
               <input
                 type="checkbox"
