@@ -12,21 +12,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-cream">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-3">
+        {/* Logotypfilen (1800×700) har genomskinlig marginal runt själva
+            logotypen (1488×402 från x 136, y 149). Rutan har logotypens
+            proportioner och bilden flyttas så att bara logotypen syns. */}
+        <Link
+          href="/"
+          className="relative block aspect-[1488/402] h-12 shrink-0 overflow-hidden sm:h-14"
+        >
           <Image
-            src="/images/logo.svg"
+            src="/logos/site-logo-with-text.png"
             alt="Local Safari Finder"
-            width={56}
-            height={56}
-            className="h-12 w-12 sm:h-14 sm:w-14"
+            width={1800}
+            height={700}
+            sizes="(min-width: 640px) 251px, 216px"
             priority
+            className="absolute top-[-37.065%] left-[-9.14%] h-auto w-[120.968%] max-w-none"
           />
-          <span className="font-serif leading-tight text-forest">
-            <span className="block text-xl sm:text-2xl">Local Safari</span>
-            <span className="block text-xs font-semibold tracking-[0.3em]">
-              FINDER
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

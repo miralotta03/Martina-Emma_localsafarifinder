@@ -2,7 +2,7 @@ export const aboutHero = {
   eyebrow: "VÅR BERÄTTELSE",
   heading: "Vi tror att de bästa resorna börjar med människorna bakom dem.",
   body: "Local Safari Finder skapades för att göra det enklare att hitta människorna bakom de mest genuina safariupplevelserna – och låta en större del av resans värde stanna där upplevelsen faktiskt skapas.",
-  image: "/images/om-oss/hero.svg",
+  image: "/om-oss/hero.jpg",
 };
 
 export const aboutIntro = {
@@ -16,7 +16,7 @@ export const aboutIntro = {
     "När våra erfarenheter möttes föddes idén till Local Safari Finder. En plattform som hjälper resenärer att hitta lokala safariföretag och samtidigt ger mindre aktörer bättre möjligheter att synas.",
     "Vi tror att de bästa upplevelserna skapas av människorna som lever dem.",
   ],
-  image: "/images/om-oss/martina-emma.svg",
+  image: "/om-oss/om-oss-martina-och-emma.png",
   imageAlt: "Martina och Emma, grundarna av Local Safari Finder",
 };
 
@@ -29,8 +29,9 @@ export const aboutBeliefs = {
     "Direktkontakt ger bättre upplevelser.",
     "När fler väljer lokalt får fler möjlighet att växa.",
   ],
-  image: "/images/om-oss/lokala-foretag.svg",
-  imageAlt: "Kvinna som bär en börda på huvudet och går längs en grusväg i en by",
+  image: "/om-oss/sma-foretag-stora-mojligheter.jpg",
+  imageAlt:
+    "Händer som stryker över högt gräs i kvällssol, i ett färgglatt mönstrat plagg",
 };
 
 export const aboutMission = {

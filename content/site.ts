@@ -29,7 +29,7 @@ export const hero = {
   ],
   body: "Vi kopplar dig direkt till små, oberoende safariföretag i Afrika. Inga mellanhänder, inga bokningsavgifter och en mycket större del av det du betalar stannar i landet du besöker.",
   cta: { label: "Utforska upplevelser", href: "/upplevelser" },
-  image: "/images/hero/hero-background.svg",
+  // Bakgrundsbilderna är alla bilder i public/home (data/homeHeroImages.ts).
 };
 
 export const travelerTypesSection = {
@@ -46,19 +46,19 @@ export const whyLocalSection = {
 
 export const whyLocalFeatures: WhyLocalFeature[] = [
   {
-    icon: "handshake",
+    icon: "/icons-homepage/pengarna-stannar-lokalt.png",
     title: "Pengarna stannar lokalt",
     description:
       "Att boka med ett lokalt företag innebär att en mycket större del av det du betalar går till lokala guider, chaufförer, kockar, lodger och samhällena runt dem.",
   },
   {
-    icon: "pin",
+    icon: "/icons-homepage/genuina-personliga-upplevelser.png",
     title: "Genuina, personliga upplevelser",
     description:
       "Små företag visar dig sitt hem inte ett polerat färdigprogram. Du möter ägaren, lär av lokala guider och reser på ett sätt som känns äkta.",
   },
   {
-    icon: "star",
+    icon: "/icons-homepage/noggrant-utvalda-partners.png",
     title: "Noggrant utvalda partners",
     description:
       "Vi handplockar varje företag utifrån kvalitet, säkerhet och etik. Inget marknadsplatsbrus bara små bolag vi själva skulle rekommendera till våra vänner.",

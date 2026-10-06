@@ -1,22 +1,16 @@
-import Image from "next/image";
 import { hero } from "@/content/site";
+import { getHomeHeroImages } from "@/data/homeHeroImages";
 import { searchFormOptions } from "@/data/search";
 import { Container } from "@/components/ui/Container";
 import { ArrowLink } from "@/components/ui/Button";
 import { SearchForm } from "@/components/search/SearchForm";
+import { HeroSlideshow } from "./HeroSlideshow";
 
 export function Hero() {
   return (
     // Ingen overflow-hidden: sökfältens listor får gå utanför heron.
     <section className="relative flex min-h-[640px] items-center bg-forest-deep lg:min-h-[760px]">
-      <Image
-        src={hero.image}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <HeroSlideshow images={getHomeHeroImages()} />
       <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/70 to-forest-deep/40" />
 
       <Container className="relative py-24">

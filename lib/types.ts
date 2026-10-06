@@ -21,7 +21,8 @@ export type TravelerType = {
 };
 
 export type WhyLocalFeature = {
-  icon: "handshake" | "pin" | "star";
+  // Sökväg till ikonbilden i public/icons-homepage.
+  icon: string;
   title: string;
   description: string;
 };

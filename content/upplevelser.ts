@@ -2,7 +2,7 @@ export const experiencesHero = {
   eyebrow: "UPPLEVELSER",
   heading: ["Hitta upplevelsen som", "passar dig"],
   body: "Välj hur du reser - så visar vi företagen som är skapta för just det.",
-  image: "/images/hero/hero-background.svg",
+  image: "/upplevelser/hero.jpg",
 };
 
 export const experienceCategories = {
