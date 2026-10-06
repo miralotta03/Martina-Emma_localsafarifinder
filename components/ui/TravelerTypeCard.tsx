@@ -28,7 +28,7 @@ export function TravelerTypeCard({
   );
 
   const className =
-    "relative block aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl sm:w-[300px]";
+    "relative block aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl sm:w-[300px] lg:w-auto";
 
   return href ? (
     <Link

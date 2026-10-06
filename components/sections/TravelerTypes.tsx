@@ -32,7 +32,8 @@ export function TravelerTypes() {
           </ArrowLink>
         </div>
 
-        <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
+        {/* Mobil/surfplatta: svepbar remsa. Desktop: alla fyra kort i en rad. */}
+        <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0">
           {travelerTypes.map((type) => (
             <TravelerTypeCard
               key={type.slug}
