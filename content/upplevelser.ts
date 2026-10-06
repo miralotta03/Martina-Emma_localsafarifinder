@@ -26,14 +26,14 @@ export const experienceCategories = {
       description:
         "För dig som är fotograf, naturälskare och som bara vill ta det i din egen takt utan att anpassa dig efter andra",
       href: "/pa-egen-hand",
-      image: "/images/traveler-types/pa-egen-hand.svg",
+      image: "/categories/pa-egen-hand/hero.jpg",
     },
     {
       title: "Dela Upplevelsen",
       description:
         "För dig som vill dela upplevelsen med familj vänner eller andra likasinnade",
       href: "/dela-upplevelsen",
-      image: "/images/traveler-types/dela-upplevelsen.svg",
+      image: "/categories/dela-upplevelsen/hero.jpg",
     },
   ],
 };

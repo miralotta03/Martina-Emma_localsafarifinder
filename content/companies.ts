@@ -19,14 +19,14 @@ export const travelerTypes: TravelerType[] = [
     title: "På egen hand",
     description:
       "För fotografer, naturälskare och dig som vill resa i din egen takt.",
-    image: "/images/traveler-types/pa-egen-hand.svg",
+    image: "/categories/pa-egen-hand/hero.jpg",
   },
   {
     slug: "dela-upplevelsen",
     title: "Dela upplevelsen",
     description:
       "Res med familj, vänner eller tillsammans med andra som delar ditt intresse för äventyr.",
-    image: "/images/traveler-types/dela-upplevelsen.svg",
+    image: "/categories/dela-upplevelsen/hero.jpg",
   },
 ];
 

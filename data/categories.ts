@@ -80,10 +80,10 @@ export const categories: Category[] = [
     label: "I DIN EGEN TAKT",
     heroText:
       "För dig som är fotograf, naturälskare och som bara vill ta det i din egen takt utan att anpassa dig efter andra",
-    image: "/images/traveler-types/pa-egen-hand.svg",
+    image: "/categories/pa-egen-hand/hero.jpg",
     imageAlt: "",
     companiesHeading: "För dig som vill resa på egen hand",
-    activities: defaultActivities,
+    activities: withActivityImages("pa-egen-hand"),
   },
   {
     slug: "dela-upplevelsen",
@@ -91,10 +91,10 @@ export const categories: Category[] = [
     label: "ÄVENTYR TILLSAMMANS",
     heroText:
       "För dig som vill dela upplevelsen med familj vänner eller andra likasinnade",
-    image: "/images/traveler-types/dela-upplevelsen.svg",
+    image: "/categories/dela-upplevelsen/hero.jpg",
     imageAlt: "",
     companiesHeading: "För dig som vill dela upplevelsen",
-    activities: defaultActivities,
+    activities: withActivityImages("dela-upplevelsen"),
   },
 ];
 
