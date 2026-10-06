@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ContactButton } from "./ContactButton";
+import { Marquee } from "@/components/ui/Marquee";
 
 function Half({
   slug,
@@ -67,12 +68,12 @@ export function CompanyGallery({
         </p>
       </Container>
 
-      <div className="marquee mt-10 overflow-hidden lg:mt-12">
+      <Marquee className="mt-10 overflow-hidden lg:mt-12">
         <div className="marquee-track flex w-max">
           <Half slug={slug} slots={profile.gallery.slots} />
           <Half slug={slug} slots={profile.gallery.slots} hidden />
         </div>
-      </div>
+      </Marquee>
 
       <Container className="mt-10 flex sm:justify-end">
         <ContactButton label={t(companyPageContent.contact, locale)} />

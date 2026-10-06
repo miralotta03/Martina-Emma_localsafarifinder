@@ -1,5 +1,6 @@
 import type { Company } from "@/data/companies";
 import { PartnerCard } from "./PartnerCard";
+import { Marquee } from "./Marquee";
 
 function Half({
   companies,
@@ -57,7 +58,7 @@ export function CompanyStrip({
   const repeats = Math.max(1, Math.ceil(6 / companies.length));
 
   return (
-    <div className="marquee overflow-hidden">
+    <Marquee className="overflow-hidden">
       <div className="marquee-track flex w-max">
         <Half companies={companies} linkLabel={linkLabel} repeats={repeats} />
         <Half
@@ -67,6 +68,6 @@ export function CompanyStrip({
           hidden
         />
       </div>
-    </div>
+    </Marquee>
   );
 }
