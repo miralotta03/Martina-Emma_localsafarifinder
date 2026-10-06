@@ -70,3 +70,20 @@ body {
     display: none;
   }
 }
+
+/* Touchskärmar (ingen hover att pausa med): remsorna står stilla och går att
+   scrolla i sidled, som vid reducerad rörelse. Rörliga kort är svåra att
+   träffa med fingret. */
+@media (hover: none) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee-clone {
+    display: none;
+  }
+}

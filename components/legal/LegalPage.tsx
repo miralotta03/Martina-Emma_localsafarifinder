@@ -81,12 +81,12 @@ export function LegalPage({ page }: { page: LegalPageContent }) {
           >
             {t(legalPageLabels.toc)}
           </h2>
-          <ul className="mt-3 space-y-1.5 text-sm">
+          <ul className="mt-3 text-sm lg:space-y-1.5">
             {sections.map((section) => (
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-forest underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  className="block py-3 text-forest underline-offset-2 hover:underline focus-visible:outline-2 lg:inline lg:py-0 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 >
                   {section.heading}
                 </a>

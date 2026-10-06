@@ -17,13 +17,16 @@ export function Faq() {
           {faqItems.map((item) => (
             <details
               key={item.question}
-              className="group rounded-2xl bg-forest px-6 py-5 text-cream open:pb-6"
+              className="group rounded-2xl bg-forest text-cream"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 marker:content-none">
+              {/* Utfyllnaden ligger på summary, så att hela raden är tryckbar. */}
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 marker:content-none">
                 <span className="font-medium">{item.question}</span>
                 <ChevronDownIcon className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" />
               </summary>
-              <p className="mt-4 text-sm text-cream/80">{item.answer}</p>
+              <p className="-mt-1 px-6 pb-6 text-sm text-cream/80">
+                {item.answer}
+              </p>
             </details>
           ))}
         </div>
