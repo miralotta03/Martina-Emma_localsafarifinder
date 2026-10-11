@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Company } from "@/data/companies";
 import { ArrowRightIcon } from "./icons";
+import { logoFitClass } from "./CompanyLogo";
 
 export function PartnerCard({
   company,
@@ -22,7 +23,7 @@ export function PartnerCard({
             alt={`${company.name} – ${company.country}`}
             fill
             sizes="(min-width: 1024px) 415px, (min-width: 640px) 340px, 260px"
-            className="object-cover"
+            className={logoFitClass(company.logo)}
           />
         ) : (
           // Ingen logotyp än: företagsnamnet som text i samma ruta.

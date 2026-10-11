@@ -18,13 +18,17 @@ export function CompanyHero({
 }) {
   return (
     <section className="relative flex min-h-[640px] items-end overflow-hidden bg-forest lg:min-h-[720px]">
-      <ImageSlot
-        slot={`${slug}/hero`}
-        image={profile.heroImage}
-        className="absolute inset-0"
-        sizes="100vw"
-        priority
-      />
+      {/* Positionen ligger på omslaget: ImageSlot sätter själv `relative`,
+          som annars tar över `absolute` och gör bilden 0×0. */}
+      <div className="absolute inset-0">
+        <ImageSlot
+          slot={`${slug}/hero`}
+          image={profile.heroImage}
+          className="h-full w-full"
+          sizes="100vw"
+          priority
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/60 to-forest-deep/30" />
 
       <Container className="relative pt-28 pb-14 lg:pb-20">

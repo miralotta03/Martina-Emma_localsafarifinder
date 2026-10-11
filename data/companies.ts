@@ -30,7 +30,7 @@ export const companies: Company[] = [
   {
     slug: "hec-kilimanjaro-safaris",
     name: "HEC Kilimanjaro Safari LTD",
-    logo: "/images/companies/hec-kilimanjaro.svg",
+    logo: "/companies/HEC-kilimanjaro-safari/logo/logo.webp",
     country: "Tanzania",
     description: "Personliga bergsvandringar för äventyrliga själar.",
     categories: ["dela-upplevelsen"],

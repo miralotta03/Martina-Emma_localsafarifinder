@@ -1,13 +1,18 @@
 import type { CompanyProfile } from "./types";
 
-// Texterna är avskrivna ordagrant från originalsidan (svenska). Inga bilder än:
-// sätt `src` (och `alt`) på respektive ImageRef när bilderna finns, se
-// public/companies/README.md.
+// Texterna är avskrivna ordagrant från originalsidan (svenska). Bilderna ligger i
+// public/companies/HEC-kilimanjaro-safari/. Upplevelsekorten saknar bilder än:
+// sätt `src` (och `alt`) på respektive ImageRef när de finns.
 export const hecKilimanjaroSafarisProfile: CompanyProfile = {
   pageName: "HEC Kilimanjaro Safaris",
   region: { sv: "Moshi, Tanzania" },
   specialityLabel: { sv: "Dela upplevelsen" },
-  heroImage: {},
+  heroImage: {
+    src: "/companies/HEC-kilimanjaro-safari/hero/hero.jpg",
+    alt: {
+      sv: "En grupp vandrare jublar vid skylten på Stella Point, Kilimanjaro",
+    },
+  },
   heroIntro: {
     sv: "För oss handlar resor om mer än att nå toppen av Kilimanjaro eller se The Big Five. Det handlar om människorna du möter, berättelserna du tar med dig hem och känslan av att upptäcka Tanzania tillsammans med dem som känner landet bäst. Scrolla vidare och lär känna vår historia, vårt team och passionen som driver HEC Kilimanjaro Safaris varje dag.",
   },
@@ -20,7 +25,10 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
         "Idag drivs HEC med samma värderingar som företaget en gång grundades på, personlig omtanke, lokal kunskap och en genuin passion för att visa Tanzania genom lokala ögon.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/hur-det-borjade.JPG",
+      alt: { sv: "Tre medlemmar i HEC-teamet i företagets jackor" },
+    },
   },
   quote: {
     sv: '"De bästa resorna handlar inte bara om platserna vi besöker, utan om människorna vi möter och minnena vi tar med oss hem."',
@@ -36,7 +44,10 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
         "Efter sin makes bortgång valde Emma att fortsätta det de byggt upp tillsammans. Idag driver hon företaget vidare tillsammans med ett lokalt team som delar samma värderingar – att varje resa ska kännas personlig, trygg och minnesvärd.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/mot-emma.jpg",
+      alt: { sv: "Emma vid skylten till Mandara Hut på Kilimanjaro" },
+    },
   },
   team: {
     heading: { sv: "Möt människorna bakom HEC" },
@@ -45,7 +56,10 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
         "HEC är mer än ett företag - vi är ett team som älskar att dela vårt hem med människor från hela världen. Från guider och chaufförer till våra lokala experter arbetar vi tillsammans för att skapa personliga upplevelser där du alltid känner dig välkommen, omhändertagen och i trygga händer.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/mot-manniskorna-bakom-hec.jpg",
+      alt: { sv: "HEC-teamet samlat för ett gruppfoto" },
+    },
   },
   experiences: {
     heading: { sv: "Äventyr, djurliv och mycket mer" },
@@ -104,7 +118,41 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
     intro: {
       sv: "Varje bild berättar en del av vår historia. Här delar vi ögonblick som fångats av vårt team och våra gäster – från safari och Kilimanjaro till vardagen, människorna och de små stunderna som gör varje resa med HEC personlig och minnesvärd.",
     },
-    slots: Array.from({ length: 8 }, () => ({})),
+    // I samma ordning som filerna är numrerade (1–8).
+    slots: [
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/1.jpg",
+        alt: { sv: "Vandrare fotograferar gruppen på en bergsstig" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/2.jpg",
+        alt: { sv: "Resenärer framför en lodge" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/3.jpg",
+        alt: { sv: "Marangu-entrén till Kilimanjaro nationalpark" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/4.jpg",
+        alt: { sv: "Guide i safarihatt vid en safaribil" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/5.jpg",
+        alt: { sv: "Vandrare sträcker upp händerna mot soluppgången" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/6.png",
+        alt: { sv: "Elefanter framför Kilimanjaro" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/7.jpg",
+        alt: { sv: "Luftballonger över savannen" },
+      },
+      {
+        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/8.jpeg",
+        alt: { sv: "Bärare och vandrare inför bestigningen" },
+      },
+    ],
   },
   unique: {
     paragraphs: {
@@ -112,7 +160,10 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
         "Vi tror att de bästa resorna bygger på människor, inte bara destinationer. Med lokal kunskap, personligt engagemang och en genuin kärlek till Tanzania skapar vi upplevelser där varje gäst känner sig välkommen, trygg och som en del av vår HEC-familj.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/en-resa-skapad-med-omtanke.jpg",
+      alt: { sv: "Resenärer firar vid toppskylten på Kilimanjaro" },
+    },
   },
   reviews: {
     intro: {
@@ -147,7 +198,10 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
     text: {
       sv: "...att känna sig välkommen, omhändertagen och som en del av vår familj. Vi vill att varje resa ska präglas av genuina möten, personlig omtanke och minnen som följer med dig långt efter att du lämnat Tanzania.",
     },
-    image: {},
+    image: {
+      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/att-resa-med-oss-innebar.jpg",
+      alt: { sv: "Vandrare på en stig med Kilimanjaro i bakgrunden" },
+    },
   },
   contact: {
     intro: {

@@ -1,5 +1,14 @@
 import Image from "next/image";
 
+// Platshållarbilderna under /images/companies är illustrationer som ska fylla
+// rutan. Riktiga logotyper (t.ex. /companies/<företag>/logo/…) visas hela och
+// centrerade med lite luft runt, så att inget av logotypen klipps bort.
+export function logoFitClass(logo: string) {
+  return logo.startsWith("/images/companies/")
+    ? "object-cover"
+    : "object-contain p-[8%]";
+}
+
 // Logotypen om den finns, annars företagsnamnet som text i samma ruta.
 export function CompanyLogo({
   name,
@@ -22,7 +31,7 @@ export function CompanyLogo({
           alt={name}
           fill
           sizes={sizes}
-          className="object-cover"
+          className={logoFitClass(logo)}
         />
       ) : (
         <div
