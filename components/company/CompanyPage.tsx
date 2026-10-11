@@ -3,7 +3,6 @@ import { defaultLocale, tp } from "@/lib/i18n";
 import { CompanyHero } from "./CompanyHero";
 import { CompanyFacts } from "./CompanyFacts";
 import { CompanyStory } from "./CompanyStory";
-import { CompanyExperiences } from "./CompanyExperiences";
 import { CompanyGallery } from "./CompanyGallery";
 import { CompanyUnique, CompanyClosing } from "./CompanyUniqueAndClosing";
 import { CompanyReviews } from "./CompanyReviews";
@@ -24,7 +23,10 @@ export function CompanyPage({ company }: { company: CompanyWithProfile }) {
         locale={locale}
       />
       <CompanyStory slug={slug} profile={profile} locale={locale} />
-      <CompanyExperiences slug={slug} profile={profile} locale={locale} />
+      {/* "Utvalda upplevelser" (CompanyExperiences) visas inte för tillfället.
+          Komponenten och texterna i profilerna finns kvar; lägg tillbaka
+          <CompanyExperiences slug={slug} profile={profile} locale={locale} />
+          här för att visa sektionen igen. */}
       <CompanyGallery slug={slug} profile={profile} locale={locale} />
       <CompanyUnique slug={slug} profile={profile} locale={locale} />
       <CompanyReviews profile={profile} locale={locale} />

@@ -53,7 +53,7 @@ export function CompanyGallery({
   return (
     <section
       aria-labelledby="company-gallery-heading"
-      className="bg-cream pb-16 lg:pb-24"
+      className="bg-cream py-16 lg:py-24"
     >
       <Container>
         <Eyebrow>{t(text.eyebrow, locale)}</Eyebrow>
