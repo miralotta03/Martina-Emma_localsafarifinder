@@ -6,7 +6,8 @@ import type { LocalizedParagraphs, LocalizedText } from "@/lib/i18n";
 export type ImageRef = { src?: string; alt?: LocalizedText; position?: string };
 
 export type CompanyExperience = {
-  tag: LocalizedText;
+  // Kort etikett ovanför titeln, t.ex. "KILIMANJARO". Visas bara om den finns.
+  tag?: LocalizedText;
   // Tom sträng om titeln saknas i originalet (renderas då utan rubrik).
   title: LocalizedText;
   description?: LocalizedText;

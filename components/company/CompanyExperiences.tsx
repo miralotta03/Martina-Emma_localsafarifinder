@@ -39,10 +39,11 @@ export function CompanyExperiences({
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {experiences.items.map((item, index) => {
             const title = t(item.title, locale);
+            const tag = item.tag ? t(item.tag, locale) : "";
             return (
               <li
-                key={`${t(item.tag, locale)}-${index}`}
-                aria-label={title ? undefined : t(item.tag, locale)}
+                key={`${tag || title}-${index}`}
+                aria-label={title ? undefined : tag}
                 className="flex flex-col overflow-hidden rounded-3xl border border-forest/5 bg-white/60"
               >
                 <ImageSlot
@@ -52,11 +53,13 @@ export function CompanyExperiences({
                   className="aspect-[4/3] w-full"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs font-semibold tracking-[0.2em] text-gold uppercase">
-                    {t(item.tag, locale)}
-                  </p>
+                  {tag && (
+                    <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-gold uppercase">
+                      {tag}
+                    </p>
+                  )}
                   {title && (
-                    <h3 className="mt-3 font-serif text-xl text-forest lg:text-2xl">
+                    <h3 className="font-serif text-xl text-forest lg:text-2xl">
                       {title}
                     </h3>
                   )}
