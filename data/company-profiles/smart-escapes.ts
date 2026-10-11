@@ -2,13 +2,18 @@ import type { CompanyProfile } from "./types";
 
 // Texterna är avskrivna ordagrant från originalsidan (svenska), inklusive
 // avvikelser som verkar vara fel i originalet (se kommentarer vid upplevelserna).
-// Inga bilder än: sätt `src` (och `alt`) på respektive ImageRef när bilderna
-// finns, se public/companies/README.md.
+// Bilderna ligger i public/companies/smart-escapes/. Upplevelsekorten saknar
+// bilder än: sätt `src` (och `alt`) på respektive ImageRef när de finns.
 export const smartEscapesProfile: CompanyProfile = {
   pageName: "Smart Escapes Limited",
   region: { sv: "Morogoro, Tanzania" },
   specialityLabel: { sv: "Dela upplevelsen" },
-  heroImage: {},
+  heroImage: {
+    src: "/companies/smart-escapes/hero/hero.jpeg",
+    alt: {
+      sv: "Två safaribilar med Smart Escapes logotyp och resenärer bredvid",
+    },
+  },
   heroIntro: {
     sv: "För oss handlar resor om mer än att se Tanzanias fantastiska djurliv. Det handlar om att upptäcka platser bortom de vanliga turiststråken, möta människorna som kallar landet sitt hem och skapa minnen som lever kvar långt efter att resan är över. Scrolla vidare och lär känna vår historia, vårt team och passionen som driver Smart Escapes varje dag.",
   },
@@ -19,7 +24,12 @@ export const smartEscapesProfile: CompanyProfile = {
         "Det som började med att hjälpa en vän har idag vuxit till ett företag som hjälper resenärer från hela världen att upptäcka Tanzanias orörda södra safarikrets genom genuina upplevelser, lokal kunskap och ett personligt bemötande.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/smart-escapes/runda-bilder/hur-allt-borjade.jpg",
+      alt: {
+        sv: "En man sträcker upp armarna vid entrén till Mikumi nationalpark",
+      },
+    },
   },
   quote: {
     sv: '"Att resa med oss innebär att uppleva det verkliga Tanzania, vilt, orört och långt bort från de stora turiststråken."',
@@ -33,7 +43,10 @@ export const smartEscapesProfile: CompanyProfile = {
         "För Patrick är höjdpunkten att möta sina gäster för första gången på flygplatsen, lära känna dem och hjälpa dem skapa minnen för livet.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/smart-escapes/runda-bilder/mot-patrick.jpg",
+      alt: { sv: "Patrick framför en safaribil med Smart Escapes logotyp" },
+    },
   },
   team: {
     heading: { sv: "Möt människorna bakom Smart Escapes" },
@@ -42,7 +55,10 @@ export const smartEscapesProfile: CompanyProfile = {
         "Bakom varje resa finns ett engagerat team av lokala guider och reseexperter som delar samma passion för Tanzania och dess fantastiska natur. Tillsammans arbetar vi för att skapa trygga, personliga och minnesvärda upplevelser där varje gäst känner sig välkommen från första stund.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/smart-escapes/runda-bilder/mot-manniskorna-bakom-smart-escapes.JPG",
+      alt: { sv: "Smart Escapes team och gäster samlade på en brygga" },
+    },
   },
   experiences: {
     heading: { sv: "Safari, vildmark och Zanzibar" },
@@ -115,7 +131,43 @@ export const smartEscapesProfile: CompanyProfile = {
     intro: {
       sv: "Varje bild berättar en del av vår historia. Här delar vi ögonblick som fångats av vårt team och våra gäster, från safariäventyr och möten med människor till den storslagna natur som gör Tanzanias södra safarikrets så unik.",
     },
-    slots: Array.from({ length: 8 }, () => ({})),
+    // I samma ordning som filerna är numrerade (1–8).
+    slots: [
+      {
+        src: "/companies/smart-escapes/rullande-bilder/1.JPG",
+        alt: {
+          sv: "En man vid utsiktsplatsen i Pugu Kazimzumbwi skogsreservat",
+        },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/2.JPG",
+        alt: { sv: "Resenärer paddlar kajak på en flod omgiven av regnskog" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/3.jpg",
+        alt: { sv: "Resenärer spanar med kikare från en safaribil" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/4.jpg",
+        alt: { sv: "Elefanter med en unge på savannen" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/5.jpg",
+        alt: { sv: "En guide bredvid en rad safaribilar" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/6.jpeg",
+        alt: { sv: "Två giraffer i högt gräs" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/7.jpeg",
+        alt: { sv: "En grupp resenärer vid entrén till Mikumi nationalpark" },
+      },
+      {
+        src: "/companies/smart-escapes/rullande-bilder/8.jpeg",
+        alt: { sv: "Resenärer i en grön safaribil med Smart Escapes logotyp" },
+      },
+    ],
   },
   unique: {
     paragraphs: {
@@ -124,7 +176,10 @@ export const smartEscapesProfile: CompanyProfile = {
         "Smart Escapes är ett 100 % tanzaniskt företag som tror på att turismen ska gynna de människor och samhällen som gör upplevelserna möjliga. Genom att anlita lokala guider, samarbeta med lokala företag och stötta samhällsinitiativ bidrar vi till en mer hållbar framtid för både människor och destinationer.",
       ],
     },
-    image: {},
+    image: {
+      src: "/companies/smart-escapes/runda-bilder/en-resa-skapad-med-omtanke.jpg",
+      alt: { sv: "Resenärer blickar ut över savannen från en öppen safaribil" },
+    },
   },
   reviews: {
     intro: {
@@ -159,7 +214,10 @@ export const smartEscapesProfile: CompanyProfile = {
     text: {
       sv: "...att uppleva det verkliga Tanzania, orört, genuint och fullt av oförglömliga äventyr.",
     },
-    image: {},
+    image: {
+      src: "/companies/smart-escapes/runda-bilder/att-resa-med-oss-innebar.jpg",
+      alt: { sv: "En elefant korsar vägen framför en safaribil" },
+    },
   },
   contact: {
     intro: {

@@ -50,7 +50,7 @@ export const companies: Company[] = [
   {
     slug: "smart-escapes",
     name: "Smart Escape Limited",
-    logo: "/images/companies/smart-escape.svg",
+    logo: "/companies/smart-escapes/logo/logo.png",
     country: "Tanzania",
     description:
       "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
