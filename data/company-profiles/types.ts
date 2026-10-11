@@ -10,11 +10,14 @@ export type CompanyExperience = {
   // Tom sträng om titeln saknas i originalet (renderas då utan rubrik).
   title: LocalizedText;
   description?: LocalizedText;
-  // Fri text, t.ex. "6–9 dagar" eller "7 dagar · 6 nätter".
-  duration: LocalizedText;
+  // Fri text, t.ex. "6–9 dagar" eller "7 dagar · 6 nätter". Visas bara om det finns.
+  duration?: LocalizedText;
   // Visas bara om det finns.
   priceFromUsd?: number;
   image: ImageRef;
+  // Ofullständigt kort (t.ex. paket, dagar och pris saknas). Visas som
+  // vanligt på sidan; markeringen finns bara för att hitta det i koden.
+  draft?: boolean;
 };
 
 export type CompanyReview = {

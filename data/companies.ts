@@ -2,6 +2,7 @@ import type { ActivityTypeSlug, TravelerCategorySlug } from "@/lib/types";
 import type { CompanyProfile } from "./company-profiles/types";
 import { hecKilimanjaroSafarisProfile } from "./company-profiles/hec-kilimanjaro-safaris";
 import { smartEscapesProfile } from "./company-profiles/smart-escapes";
+import { caracalToursSafarisProfile } from "./company-profiles/caracal-tours-safaris";
 
 // Vart företaget kör resor (inte var det sitter, se profile.region).
 // `slug` är stadens värde i sök-URL:en, t.ex. /sok?destination=tanzania-moshi.
@@ -71,6 +72,27 @@ export const companies: Company[] = [
       { country: "Tanzania", city: "Morogoro", slug: "tanzania-morogoro" },
     ],
     profile: smartEscapesProfile,
+  },
+  {
+    slug: "caracal-tours-safaris",
+    name: "Caracal Tours & Safaris",
+    logo: "/companies/caracal-tours-safaris/logo/logo.jpg",
+    country: "Tanzania",
+    // TODO: utkast, ska godkännas av kunden.
+    description: "Personliga safarier i din egen takt, bortom folkmassorna.",
+    categories: ["med-barn"],
+    activityTypes: [
+      "bergsvandring",
+      "safariaventyr",
+      "strandsemester",
+      "paketresor",
+    ],
+    // TODO: PLATSHÅLLARE, utgår från region (Moshi, Tanzania). Ska bekräftas
+    // av kunden.
+    destinations: [
+      { country: "Tanzania", city: "Moshi", slug: "tanzania-moshi" },
+    ],
+    profile: caracalToursSafarisProfile,
   },
 ];
 

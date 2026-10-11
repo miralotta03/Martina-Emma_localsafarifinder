@@ -65,14 +65,17 @@ export function CompanyExperiences({
                       {t(item.description, locale)}
                     </p>
                   )}
-                  <ul className="mt-auto space-y-1 pt-5 text-sm text-forest">
-                    <li>{t(item.duration, locale)}</li>
-                    {item.priceFromUsd !== undefined && (
-                      <li>
-                        {`${t(text.pricePrefix, locale)} ${item.priceFromUsd.toLocaleString("sv-SE")} ${t(text.priceSuffix, locale)}`}
-                      </li>
-                    )}
-                  </ul>
+                  {/* Längd och pris visas bara när de finns. */}
+                  {(item.duration || item.priceFromUsd !== undefined) && (
+                    <ul className="mt-auto space-y-1 pt-5 text-sm text-forest">
+                      {item.duration && <li>{t(item.duration, locale)}</li>}
+                      {item.priceFromUsd !== undefined && (
+                        <li>
+                          {`${t(text.pricePrefix, locale)} ${item.priceFromUsd.toLocaleString("sv-SE")} ${t(text.priceSuffix, locale)}`}
+                        </li>
+                      )}
+                    </ul>
+                  )}
                 </div>
               </li>
             );
