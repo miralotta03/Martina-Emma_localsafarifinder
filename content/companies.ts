@@ -36,7 +36,7 @@ export const companies: Company[] = [
     name: "Smart Escape Limited",
     country: "Tanzania",
     description: "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
-    image: "/images/companies/smart-escape.svg",
+    image: "/companies/smart-escapes/hero/hero.jpeg",
     categories: ["for-tva", "med-barn", "pa-egen-hand", "dela-upplevelsen"],
   },
   {
@@ -44,7 +44,7 @@ export const companies: Company[] = [
     name: "HEC Kilimanjaro Safari LTD",
     country: "Tanzania",
     description: "Personliga bergsvandringar för äventyrliga själar",
-    image: "/images/companies/hec-kilimanjaro.svg",
+    image: "/companies/HEC-kilimanjaro-safari/hero/hero.jpg",
     categories: ["pa-egen-hand", "dela-upplevelsen"],
   },
 ];

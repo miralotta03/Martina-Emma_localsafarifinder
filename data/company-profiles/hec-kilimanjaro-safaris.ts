@@ -28,6 +28,8 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
     image: {
       src: "/companies/HEC-kilimanjaro-safari/runda-bilder/hur-det-borjade.JPG",
       alt: { sv: "Tre medlemmar i HEC-teamet i företagets jackor" },
+      // Mer av vänster sida, så att kvinnan längst till vänster syns helt.
+      position: "20% 50%",
     },
   },
   quote: {
@@ -47,6 +49,8 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
     image: {
       src: "/companies/HEC-kilimanjaro-safari/runda-bilder/mot-emma.jpg",
       alt: { sv: "Emma vid skylten till Mandara Hut på Kilimanjaro" },
+      // Emmas ansikte sitter långt till höger i den breda bilden.
+      position: "90% 50%",
     },
   },
   team: {

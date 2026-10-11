@@ -1,7 +1,9 @@
 import type { LocalizedParagraphs, LocalizedText } from "@/lib/i18n";
 
 // En bild är alltid valfri. Med `src` krävs alt-text; utan visas en platshållare.
-export type ImageRef = { src?: string; alt?: LocalizedText };
+// `position` (valfri) är bildens fokuspunkt när den beskärs, som CSS
+// object-position, t.ex. "20% 50%" för att visa mer av vänstra delen.
+export type ImageRef = { src?: string; alt?: LocalizedText; position?: string };
 
 export type CompanyExperience = {
   tag: LocalizedText;
