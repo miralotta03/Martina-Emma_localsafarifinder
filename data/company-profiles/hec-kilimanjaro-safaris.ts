@@ -1,14 +1,14 @@
 import type { CompanyProfile } from "./types";
 
 // Texterna är avskrivna ordagrant från originalsidan (svenska). Bilderna ligger i
-// public/companies/HEC-kilimanjaro-safari/. Upplevelsekorten saknar bilder än:
+// public/companies/HEC-kilimanjaro-safaris/. Upplevelsekorten saknar bilder än:
 // sätt `src` (och `alt`) på respektive ImageRef när de finns.
 export const hecKilimanjaroSafarisProfile: CompanyProfile = {
   pageName: "HEC Kilimanjaro Safaris",
   region: { sv: "Moshi, Tanzania" },
   specialityLabel: { sv: "Dela upplevelsen" },
   heroImage: {
-    src: "/companies/HEC-kilimanjaro-safari/hero/hero.jpg",
+    src: "/companies/HEC-kilimanjaro-safaris/hero/hero.jpg",
     alt: {
       sv: "En grupp vandrare jublar vid skylten på Stella Point, Kilimanjaro",
     },
@@ -26,7 +26,7 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
       ],
     },
     image: {
-      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/hur-det-borjade.JPG",
+      src: "/companies/HEC-kilimanjaro-safaris/runda-bilder/hur-det-borjade.JPG",
       alt: { sv: "Tre medlemmar i HEC-teamet i företagets jackor" },
       // Mer av vänster sida, så att kvinnan längst till vänster syns helt.
       position: "20% 50%",
@@ -47,7 +47,7 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
       ],
     },
     image: {
-      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/mot-emma.jpg",
+      src: "/companies/HEC-kilimanjaro-safaris/runda-bilder/mot-emma.jpg",
       alt: { sv: "Emma vid skylten till Mandara Hut på Kilimanjaro" },
       // Emmas ansikte sitter långt till höger i den breda bilden.
       position: "90% 50%",
@@ -61,7 +61,7 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
       ],
     },
     image: {
-      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/mot-manniskorna-bakom-hec.jpg",
+      src: "/companies/HEC-kilimanjaro-safaris/runda-bilder/mot-manniskorna-bakom-hec.jpg",
       alt: { sv: "HEC-teamet samlat för ett gruppfoto" },
     },
   },
@@ -125,35 +125,35 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
     // I samma ordning som filerna är numrerade (1–8).
     slots: [
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/1.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/1.jpg",
         alt: { sv: "Vandrare fotograferar gruppen på en bergsstig" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/2.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/2.jpg",
         alt: { sv: "Resenärer framför en lodge" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/3.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/3.jpg",
         alt: { sv: "Marangu-entrén till Kilimanjaro nationalpark" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/4.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/4.jpg",
         alt: { sv: "Guide i safarihatt vid en safaribil" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/5.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/5.jpg",
         alt: { sv: "Vandrare sträcker upp händerna mot soluppgången" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/6.png",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/6.png",
         alt: { sv: "Elefanter framför Kilimanjaro" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/7.jpg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/7.jpg",
         alt: { sv: "Luftballonger över savannen" },
       },
       {
-        src: "/companies/HEC-kilimanjaro-safari/rullande-bilder/8.jpeg",
+        src: "/companies/HEC-kilimanjaro-safaris/rullande-bilder/8.jpeg",
         alt: { sv: "Bärare och vandrare inför bestigningen" },
       },
     ],
@@ -165,7 +165,7 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
       ],
     },
     image: {
-      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/en-resa-skapad-med-omtanke.jpg",
+      src: "/companies/HEC-kilimanjaro-safaris/runda-bilder/en-resa-skapad-med-omtanke.jpg",
       alt: { sv: "Resenärer firar vid toppskylten på Kilimanjaro" },
     },
   },
@@ -203,7 +203,7 @@ export const hecKilimanjaroSafarisProfile: CompanyProfile = {
       sv: "...att känna sig välkommen, omhändertagen och som en del av vår familj. Vi vill att varje resa ska präglas av genuina möten, personlig omtanke och minnen som följer med dig långt efter att du lämnat Tanzania.",
     },
     image: {
-      src: "/companies/HEC-kilimanjaro-safari/runda-bilder/att-resa-med-oss-innebar.jpg",
+      src: "/companies/HEC-kilimanjaro-safaris/runda-bilder/att-resa-med-oss-innebar.jpg",
       alt: { sv: "Vandrare på en stig med Kilimanjaro i bakgrunden" },
     },
   },
