@@ -1,5 +1,5 @@
 import { localFavoritesSection } from "@/content/site";
-import { companies } from "@/content/companies";
+import { companiesWithProfile } from "@/data/companies";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CompanyCard } from "@/components/ui/CompanyCard";
@@ -17,8 +17,10 @@ export function LocalFavorites() {
         </p>
       </Container>
 
-      <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 lg:px-[calc((100vw-80rem)/2+2.5rem)]">
-        {companies.map((company) => (
+      {/* Alla företag med en egen sida. Mobil/surfplatta: svepbar remsa.
+          Desktop: rutnät i Containerns bredd, så att alla kort syns. */}
+      <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-10 lg:pb-0">
+        {companiesWithProfile.map((company) => (
           <CompanyCard key={company.slug} company={company} />
         ))}
       </div>

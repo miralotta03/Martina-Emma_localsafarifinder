@@ -1,15 +1,19 @@
 import type { Company } from "@/data/companies";
 import { PartnerCard } from "./PartnerCard";
+
+type Media = "logo" | "hero";
 import { Marquee } from "./Marquee";
 
 function Half({
   companies,
   linkLabel,
+  media,
   repeats,
   hidden = false,
 }: {
   companies: Company[];
   linkLabel: string;
+  media?: Media;
   repeats: number;
   hidden?: boolean;
 }) {
@@ -22,7 +26,11 @@ function Half({
       {Array.from({ length: repeats }).flatMap((_, r) =>
         companies.map((company) => (
           <li key={`${r}-${company.slug}`}>
-            <PartnerCard company={company} linkLabel={linkLabel} />
+            <PartnerCard
+              company={company}
+              linkLabel={linkLabel}
+              media={media}
+            />
           </li>
         )),
       )}
@@ -36,17 +44,24 @@ export function CompanyStrip({
   companies,
   linkLabel,
   staticBelow,
+  media,
 }: {
   companies: Company[];
   linkLabel: string;
   staticBelow?: number;
+  // Se PartnerCard: logotyp (standard) eller företagens hero-bilder.
+  media?: Media;
 }) {
   if (staticBelow !== undefined && companies.length < staticBelow) {
     return (
       <ul className="mx-auto flex max-w-7xl flex-wrap justify-center gap-6 px-6 lg:px-10">
         {companies.map((company) => (
           <li key={company.slug}>
-            <PartnerCard company={company} linkLabel={linkLabel} />
+            <PartnerCard
+              company={company}
+              linkLabel={linkLabel}
+              media={media}
+            />
           </li>
         ))}
       </ul>
@@ -60,10 +75,16 @@ export function CompanyStrip({
   return (
     <Marquee className="overflow-hidden">
       <div className="marquee-track flex w-max">
-        <Half companies={companies} linkLabel={linkLabel} repeats={repeats} />
         <Half
           companies={companies}
           linkLabel={linkLabel}
+          media={media}
+          repeats={repeats}
+        />
+        <Half
+          companies={companies}
+          linkLabel={linkLabel}
+          media={media}
           repeats={repeats}
           hidden
         />

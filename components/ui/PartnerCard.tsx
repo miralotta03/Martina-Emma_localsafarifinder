@@ -4,20 +4,38 @@ import type { Company } from "@/data/companies";
 import { ArrowRightIcon } from "./icons";
 import { logoFitClass } from "./CompanyLogo";
 
+// `media`: vad kortets bildruta visar. "logo" (standard) är företagets
+// logotyp; "hero" är hero-bilden från företagssidan, med logotypen som
+// reserv om hero-bild saknas.
 export function PartnerCard({
   company,
   linkLabel,
+  media = "logo",
 }: {
   company: Company;
   linkLabel: string;
+  media?: "logo" | "hero";
 }) {
+  const hero = media === "hero" ? company.profile?.heroImage : undefined;
+
   return (
     <Link
       href={`/${company.slug}`}
       className="group block w-[260px] overflow-hidden rounded-2xl bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[340px] lg:w-[415px]"
     >
-      <div className="relative aspect-[8/5] w-full">
-        {company.logo ? (
+      <div className="relative aspect-[8/5] w-full overflow-hidden">
+        {hero?.src ? (
+          <Image
+            src={hero.src}
+            alt={`${company.name} – ${company.country}`}
+            fill
+            sizes="(min-width: 1024px) 415px, (min-width: 640px) 340px, 260px"
+            className="object-cover"
+            style={
+              hero.position ? { objectPosition: hero.position } : undefined
+            }
+          />
+        ) : company.logo ? (
           <Image
             src={company.logo}
             alt={`${company.name} – ${company.country}`}

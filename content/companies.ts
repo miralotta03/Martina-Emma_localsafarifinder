@@ -1,4 +1,4 @@
-import type { Company, TravelerType } from "@/lib/types";
+import type { TravelerType } from "@/lib/types";
 
 export const travelerTypes: TravelerType[] = [
   {
@@ -27,24 +27,5 @@ export const travelerTypes: TravelerType[] = [
     description:
       "Res med familj, vänner eller tillsammans med andra som delar ditt intresse för äventyr.",
     image: "/categories/dela-upplevelsen/hero.jpg",
-  },
-];
-
-export const companies: Company[] = [
-  {
-    slug: "smart-escapes",
-    name: "Smart Escape Limited",
-    country: "Tanzania",
-    description: "Safariäventyr för dig som vill uppleva det verkliga Tanzania.",
-    image: "/companies/smart-escapes/hero/hero.jpeg",
-    categories: ["for-tva", "med-barn", "pa-egen-hand", "dela-upplevelsen"],
-  },
-  {
-    slug: "hec-kilimanjaro-safaris",
-    name: "HEC Kilimanjaro Safari LTD",
-    country: "Tanzania",
-    description: "Personliga bergsvandringar för äventyrliga själar",
-    image: "/companies/HEC-kilimanjaro-safari/hero/hero.jpg",
-    categories: ["pa-egen-hand", "dela-upplevelsen"],
   },
 ];

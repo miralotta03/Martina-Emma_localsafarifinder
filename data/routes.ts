@@ -1,6 +1,5 @@
 import { categories, isCategoryReady } from "./categories";
-import { companies, companiesWithProfile } from "./companies";
-import { companies as localFavorites } from "@/content/companies";
+import { companies } from "./companies";
 import { categoryActivityPages } from "./categoryActivities";
 import { countrySlug } from "@/lib/search";
 
@@ -114,21 +113,7 @@ function assertValidDestinations() {
   }
 }
 
-// Startsidans "Lokala favoriter" (content/companies.ts) länkar till /{slug}.
-// Sluggen måste höra till ett företag som har en sida, annars blir det 404.
-function assertFavoritesHavePages() {
-  const withPage = new Set(companiesWithProfile.map((company) => company.slug));
-  for (const { slug } of localFavorites) {
-    if (!withPage.has(slug)) {
-      throw new Error(
-        `Favoritkortet "${slug}" (content/companies.ts) länkar till ett företag utan sida.`,
-      );
-    }
-  }
-}
-
 assertNoSlugCollisions();
 assertValidActivityPages();
 assertEveryActivityHasPage();
 assertValidDestinations();
-assertFavoritesHavePages();

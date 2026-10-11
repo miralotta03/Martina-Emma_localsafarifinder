@@ -1,19 +1,20 @@
-import Image from "next/image";
-import type { Company } from "@/lib/types";
+import type { CompanyWithProfile } from "@/data/companies";
 import { ArrowLink } from "./Button";
+import { ImageSlot } from "./ImageSlot";
 
-export function CompanyCard({ company }: { company: Company }) {
+// Kort under "Lokala favoriter" på startsidan. Bilden är företagets hero-bild;
+// saknas den visas samma neutrala platshållare som på företagssidan.
+export function CompanyCard({ company }: { company: CompanyWithProfile }) {
+  const { heroImage } = company.profile;
+
   return (
-    <article className="w-[280px] shrink-0 snap-start overflow-hidden rounded-2xl bg-cream sm:w-[320px]">
-      <div className="relative aspect-[4/3] w-full">
-        <Image
-          src={company.image}
-          alt={`${company.name} – ${company.country}`}
-          fill
-          sizes="(min-width: 640px) 320px, 280px"
-          className="object-cover"
-        />
-      </div>
+    <article className="w-[280px] shrink-0 snap-start overflow-hidden rounded-2xl bg-cream sm:w-[320px] lg:w-auto">
+      <ImageSlot
+        slot={`${company.slug}/favorite`}
+        image={heroImage}
+        sizes="(min-width: 1024px) 400px, (min-width: 640px) 320px, 280px"
+        className="aspect-[4/3] w-full"
+      />
       <div className="space-y-2 p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-serif text-xl text-forest">{company.name}</h3>

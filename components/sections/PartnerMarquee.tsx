@@ -24,6 +24,7 @@ export function PartnerMarquee() {
         <CompanyStrip
           companies={companies}
           linkLabel={partnersSection.linkLabel}
+          media="hero"
         />
       </div>
     </section>

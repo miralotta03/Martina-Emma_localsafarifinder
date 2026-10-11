@@ -1,8 +1,5 @@
 export type TravelerCategorySlug =
-  | "for-tva"
-  | "med-barn"
-  | "pa-egen-hand"
-  | "dela-upplevelsen";
+  "for-tva" | "med-barn" | "pa-egen-hand" | "dela-upplevelsen";
 
 export type NavLink = {
   label: string;
@@ -27,15 +24,6 @@ export type WhyLocalFeature = {
   description: string;
 };
 
-export type Company = {
-  slug: string;
-  name: string;
-  country: string;
-  description: string;
-  image: string;
-  categories: TravelerCategorySlug[];
-};
-
 export type FaqItem = {
   question: string;
   answer: string;
@@ -47,7 +35,4 @@ export type FooterLinkColumn = {
 };
 
 export type ActivityTypeSlug =
-  | "bergsvandring"
-  | "safariaventyr"
-  | "strandsemester"
-  | "paketresor";
+  "bergsvandring" | "safariaventyr" | "strandsemester" | "paketresor";
