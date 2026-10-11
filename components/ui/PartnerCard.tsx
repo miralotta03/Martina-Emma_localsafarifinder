@@ -21,7 +21,7 @@ export function PartnerCard({
   return (
     <Link
       href={`/${company.slug}`}
-      className="group block w-[260px] overflow-hidden rounded-2xl bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[340px] lg:w-[415px]"
+      className="group block h-full w-[260px] overflow-hidden rounded-2xl bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[340px] lg:w-[415px]"
     >
       <div className="relative aspect-[8/5] w-full overflow-hidden">
         {hero?.src ? (

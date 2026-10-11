@@ -19,7 +19,7 @@ export function LocalFavorites() {
 
       {/* Alla företag med en egen sida. Mobil/surfplatta: svepbar remsa.
           Desktop: rutnät i Containerns bredd, så att alla kort syns. */}
-      <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-10 lg:pb-0">
+      <div className="scrollbar-none mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 lg:mx-auto lg:grid lg:max-w-7xl lg:auto-rows-fr lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-10 lg:pb-0">
         {companiesWithProfile.map((company) => (
           <CompanyCard key={company.slug} company={company} />
         ))}
