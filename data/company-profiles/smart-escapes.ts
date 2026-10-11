@@ -13,6 +13,8 @@ export const smartEscapesProfile: CompanyProfile = {
     alt: {
       sv: "Två safaribilar med Smart Escapes logotyp och resenärer bredvid",
     },
+    // Mer av överkanten (biltaken och reservhjulen med logotypen).
+    position: "50% 25%",
   },
   heroIntro: {
     sv: "För oss handlar resor om mer än att se Tanzanias fantastiska djurliv. Det handlar om att upptäcka platser bortom de vanliga turiststråken, möta människorna som kallar landet sitt hem och skapa minnen som lever kvar långt efter att resan är över. Scrolla vidare och lär känna vår historia, vårt team och passionen som driver Smart Escapes varje dag.",
@@ -179,6 +181,8 @@ export const smartEscapesProfile: CompanyProfile = {
     image: {
       src: "/companies/smart-escapes/runda-bilder/en-resa-skapad-med-omtanke.jpg",
       alt: { sv: "Resenärer blickar ut över savannen från en öppen safaribil" },
+      // Kvinnan sitter längst till vänster i bilden.
+      position: "0% 50%",
     },
   },
   reviews: {
