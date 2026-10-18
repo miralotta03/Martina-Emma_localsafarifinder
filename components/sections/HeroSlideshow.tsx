@@ -46,7 +46,10 @@ export function HeroSlideshow({ images }: { images: string[] }) {
           alt=""
           fill
           priority={index === 0}
-          sizes="100vw"
+          // Heron är hög på mobil, så bilderna (cover) blir bredare än
+          // skärmen. Minst 1000px: betydligt skarpare där, utan att
+          // mobilen hämtar de allra största filerna.
+          sizes="max(100vw, 1000px)"
           className={`object-cover transition-opacity duration-[1500ms] ease-in-out motion-reduce:transition-none ${
             index === current ? "opacity-100" : "opacity-0"
           }`}
