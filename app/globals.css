@@ -101,11 +101,11 @@ body {
   animation: marquee 40s linear infinite;
 }
 
-/* Tvär paus vid hover gäller bara tills JS har laddats; sedan bromsar
-   Marquee-komponenten mjukt i stället (.marquee-eased). Vid tangentbordsfokus
-   stannar remsan direkt, så att länken inte flyttar sig. */
+/* Paus vid hover och fokus gäller bara tills JS har laddats; sedan sköter
+   Marquee-komponenten pausen via playbackRate (.marquee-eased). Båda får inte
+   gälla samtidigt, då hoppar remsan när en länk får fokus. */
 .marquee:not(.marquee-eased):hover .marquee-track,
-.marquee:focus-within .marquee-track {
+.marquee:not(.marquee-eased):focus-within .marquee-track {
   animation-play-state: paused;
 }
 

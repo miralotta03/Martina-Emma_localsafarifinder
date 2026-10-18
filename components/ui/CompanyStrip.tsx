@@ -17,11 +17,13 @@ function Half({
   repeats: number;
   hidden?: boolean;
 }) {
+  // Kopian (hidden) syns ungefär en tredjedel av tiden och måste gå att klicka
+  // på, så den är inte inert. Den döljs i stället för skärmläsare
+  // (aria-hidden) och ligger utanför tabbordningen (tabIndex -1).
   return (
     <ul
       className={`flex shrink-0 gap-6 pr-6 ${hidden ? "marquee-clone" : ""}`}
       aria-hidden={hidden || undefined}
-      inert={hidden || undefined}
     >
       {Array.from({ length: repeats }).flatMap((_, r) =>
         companies.map((company) => (
@@ -30,6 +32,7 @@ function Half({
               company={company}
               linkLabel={linkLabel}
               media={media}
+              tabIndex={hidden ? -1 : undefined}
             />
           </li>
         )),
