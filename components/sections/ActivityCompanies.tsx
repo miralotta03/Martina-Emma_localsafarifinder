@@ -46,6 +46,7 @@ export function ActivityCompanies({
             companies={companies}
             linkLabel={text.readMore}
             staticBelow={LOOP_FROM}
+            media="hero"
           />
         ) : (
           <Container>
