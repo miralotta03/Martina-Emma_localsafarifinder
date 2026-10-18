@@ -19,5 +19,9 @@
   },
   "observability": {
     "enabled": true
+  },
+  // Inte hemligt (syns i sidans HTML). Se .env.example.
+  "vars": {
+    "NEXT_PUBLIC_UMAMI_WEBSITE_ID": "b2fa7436-9eea-4de3-839d-9d0ab857be9b"
   }
 }
