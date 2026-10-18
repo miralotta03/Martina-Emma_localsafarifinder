@@ -1,13 +1,21 @@
 import type { CompanyProfile } from "./types";
 
 // Texterna kommer från företagets ansökan (svenska), inklistrade ordagrant.
-// Texter märkta TODO är utkast som ska godkännas av kunden. Inga bilder än:
-// sätt `src` (och `alt`) på respektive ImageRef när bilderna finns.
+// Texter märkta TODO är utkast som ska godkännas av kunden. Bilderna ligger i
+// public/companies/utukufu-travels-adventures/. Upplevelsekorten saknar
+// bilder, dagar och pris (se TODO vid upplevelserna).
+const dir = "/companies/utukufu-travels-adventures";
+
 export const utukufuTravelsAdventuresProfile: CompanyProfile = {
   pageName: "Utukufu Travels & Adventures",
   region: { sv: "Arusha, Tanzania" },
   specialityLabel: { sv: "Med Barn" },
-  heroImage: {},
+  heroImage: {
+    src: `${dir}/hero/hero.JPG`,
+    alt: {
+      sv: "En safaribil bland gnuer på den gröna savannen",
+    },
+  },
   heroIntro: {
     sv: "För oss handlar resor om mer än att se Tanzanias vilda djurliv. Det handlar om skräddarsydda safarier, Kilimanjaro-vandringar, kulturella möten och strandsemestrar på Zanzibar, byggda kring lokal kunskap, personlig uppmärksamhet och ärliga råd. Scrolla vidare och lär känna vår historia, vårt team och passionen som driver Utukufu Travels & Adventures varje dag.",
   },
@@ -19,7 +27,12 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
         "Det som gör våra resor annorlunda är hur vi planerar dem. Vi tar oss tid att lyssna på vad du vill ha ut av din resa och kombinerar dina intressen med vår lokala kunskap. Utukufu betyder 'Ära' på swahili, det representerar vår koppling till Tanzania och stoltheten i att dela vårt hem med människor från hela världen.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/hur-allt-borjade.JPG`,
+      alt: {
+        sv: "Resenärer och guider blickar ut över en sjö från en utsiktsplats",
+      },
+    },
   },
   quote: {
     sv: '"Att resa med oss innebär att ha ett lokalt team som lyssnar på dig, ger ärliga råd och tar hand om detaljerna från första samtalet till resans slut."',
@@ -34,7 +47,10 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
         "Exaudy tror på ärlig rådgivning och personlig planering, där varje resrutt anpassas efter resenärens intressen, tempo och förväntningar snarare än att följa ett standardpaket.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/mot-exaudy.JPG`,
+      alt: { sv: "Exaudy Samuel sitter på en safaribil" },
+    },
   },
   team: {
     heading: { sv: "Möt människorna bakom Utukufu Travels & Adventures" },
@@ -43,7 +59,10 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
         "Bakom varje resa med Utukufu Travels & Adventures finns ett team med djup lokal kunskap om Tanzanias parker, kultur och djurliv. Tillsammans arbetar de för att skapa resor där varje detalj, från flygplatstransfer till boende och tempo, är genomtänkt.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/mot-manniskorna-bakom-utukufu.jpg`,
+      alt: { sv: "Utukufus team framför en safaribil" },
+    },
   },
   experiences: {
     // TODO: utkast, ska godkännas av kunden. Sektionen visas inte för
@@ -106,7 +125,44 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
     intro: {
       sv: "Varje bild berättar en del av vår historia. Här delar vi ögonblick från våra resor, från safarier och Kilimanjaro till kulturella möten och Zanzibars stränder.",
     },
-    slots: Array.from({ length: 8 }, () => ({})),
+    slots: [
+      {
+        src: `${dir}/rullande-bilder/1.JPG`,
+        alt: { sv: "En guide tillsammans med två resenärer på savannen" },
+      },
+      {
+        src: `${dir}/rullande-bilder/2.JPG`,
+        alt: { sv: "Elefanter går förbi safaribilar längs en grusväg" },
+      },
+      {
+        src: `${dir}/rullande-bilder/3.JPG`,
+        alt: { sv: "Resenärer äter lunch vid ett dukat bord på savannen" },
+      },
+      {
+        src: `${dir}/rullande-bilder/4.JPG`,
+        alt: { sv: "En safaribil bland gnuer på den gröna savannen" },
+      },
+      {
+        src: `${dir}/rullande-bilder/5.JPG`,
+        alt: { sv: "Resenärer i röda massajtyg besöker en massajby" },
+      },
+      {
+        src: `${dir}/rullande-bilder/6.JPG`,
+        alt: {
+          sv: "En grupp resenärer framför safaribilar under blommande buskar",
+        },
+      },
+      {
+        src: `${dir}/rullande-bilder/7.JPG`,
+        alt: {
+          sv: "Resenärer och guider vid ett picknickbord, en spanar med kikare",
+        },
+      },
+      {
+        src: `${dir}/rullande-bilder/8.jpg`,
+        alt: { sv: "Fem guider i Utukufus uniformer framför en safaribil" },
+      },
+    ],
   },
   unique: {
     paragraphs: {
@@ -114,7 +170,10 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
         "Vi tror inte att alla resenärer ska följa samma resrutt. Vi kan anpassa antal dagar, destinationer, boende, aktiviteter och tempo efter dina planer. Du kommunicerar direkt med vårt team, och vi berättar ärligt vad vi rekommenderar, även när det innebär att något inte är värt den extra kostnaden.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/en-resa-skapad-med-omtanke.jpg`,
+      alt: { sv: "Resenärer vinkar från safaribilens tak bland akaciaträd" },
+    },
   },
   reviews: {
     // TODO: utkast, ska godkännas av kunden.
@@ -150,7 +209,10 @@ export const utukufuTravelsAdventuresProfile: CompanyProfile = {
     text: {
       sv: "...att ha ett lokalt team som lyssnar, ger ärliga råd och tar hand om detaljerna, från första samtalet till resans slut.",
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/att-resa-med-oss-innebar.JPG`,
+      alt: { sv: "Resenärer i massajtyg tillsammans med sina guider" },
+    },
   },
   contact: {
     // TODO: utkast, ska godkännas av kunden.

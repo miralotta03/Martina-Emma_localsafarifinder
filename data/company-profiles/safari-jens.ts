@@ -1,8 +1,10 @@
 import type { CompanyProfile } from "./types";
 
 // Texterna kommer från företagets ansökan (svenska), inklistrade ordagrant.
-// Texter märkta TODO är utkast som ska godkännas av kunden. Inga bilder än:
-// sätt `src` (och `alt`) på respektive ImageRef när bilderna finns.
+// Texter märkta TODO är utkast som ska godkännas av kunden. Bilderna ligger i
+// public/companies/safari-jens/. Upplevelsekorten saknar bilder, dagar och
+// pris (se TODO vid upplevelserna).
+const dir = "/companies/safari-jens";
 
 // TODO: riktiga paket, dagar och pris saknas, invänta underlag från Safari
 // Jens. Ett platshållarkort per aktivitetstyp, utan längd och pris.
@@ -17,7 +19,12 @@ export const safariJensProfile: CompanyProfile = {
   pageName: "Safari Jens",
   region: { sv: "Arusha, Tanzania" },
   specialityLabel: { sv: "Med Barn" },
-  heroImage: {},
+  heroImage: {
+    src: `${dir}/hero/hero.jpeg`,
+    alt: {
+      sv: "Elefanter går förbi en safaribil med Safari Jens logotyp",
+    },
+  },
   heroIntro: {
     sv: "För oss handlar resor om mer än att se Afrikas vilda djurliv. Det handlar om skräddarsydda safariäventyr, bergsvandringar, strandsemestrar och kulturella möten som kopplar samman resenärer med Tanzanias skönhet, djurliv och människor. Scrolla vidare och lär känna vår historia, vårt team och passionen som driver Safari Jens varje dag.",
   },
@@ -29,7 +36,12 @@ export const safariJensProfile: CompanyProfile = {
         "Idag drivs Safari Jens fortfarande som ett familjeägt och tanzaniskt lett företag. Efter Jens bortgång 2026 tog Amelile Jacqueline Ngajilo, som redan under många år varit företagets operativa och ekonomiska chef, över rollen som verkställande direktör. Tillsammans med ett engagerat team av researrangörer, guider, koordinatorer och supportpersonal för hon vidare företagets uppdrag och värderingar.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/hur-allt-borjade.jpeg`,
+      alt: {
+        sv: "En resenär i massajtyg tillsammans med massajer och en åsna på savannen",
+      },
+    },
   },
   quote: {
     sv: '"Att resa med oss innebär att uppleva Tanzania genom lokala experters ögon som bryr sig om varje detalj i din resa."',
@@ -44,7 +56,10 @@ export const safariJensProfile: CompanyProfile = {
         "Efter Jens bortgång 2026 leder Amelile, som i många år varit företagets operativa och ekonomiska chef, verksamheten vidare som verkställande direktör, med samma engagemang för kvalitet och personlig service som en gång grundade företaget.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/mot-amelile.jpeg`,
+      alt: { sv: "Porträtt av Amelile Jacqueline Ngajilo" },
+    },
   },
   team: {
     heading: { sv: "Möt människorna bakom Safari Jens" },
@@ -53,7 +68,12 @@ export const safariJensProfile: CompanyProfile = {
         "Bakom varje resa med Safari Jens finns ett dedikerat team av researrangörer, guider, koordinatorer och supportpersonal. Tillsammans arbetar de för att varje gäst ska känna sig välkommen, trygg och omhändertagen genom hela sin resa.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/mot-manniskorna-bakom-safari-jens.jpeg`,
+      alt: {
+        sv: "En guide i uniform vid en safaribil med Safari Jens logotyp",
+      },
+    },
   },
   experiences: {
     // TODO: utkast, ska godkännas av kunden. Sektionen visas inte för
@@ -76,7 +96,44 @@ export const safariJensProfile: CompanyProfile = {
     intro: {
       sv: "Varje bild berättar en del av vår historia. Här delar vi ögonblick från våra resor, från safariäventyr och bergsvandringar till stränder och kulturella möten i Tanzania.",
     },
-    slots: Array.from({ length: 8 }, () => ({})),
+    slots: [
+      {
+        src: `${dir}/rullande-bilder/1.jpeg`,
+        alt: { sv: "En guide står vid en safaribil i gryningen" },
+      },
+      {
+        src: `${dir}/rullande-bilder/2.jpeg`,
+        alt: {
+          sv: "En leende resenär i förarsätet på en safaribil med Safari Jens logotyp",
+        },
+      },
+      {
+        src: `${dir}/rullande-bilder/3.jpeg`,
+        alt: { sv: "En luftballong fylls inför en ballongtur över savannen" },
+      },
+      {
+        src: `${dir}/rullande-bilder/4.jpeg`,
+        alt: { sv: "Resenärer vid toppskylten på Kilimanjaro" },
+      },
+      {
+        src: `${dir}/rullande-bilder/5.jpeg`,
+        alt: { sv: "En leopard vilar i ett träd" },
+      },
+      {
+        src: `${dir}/rullande-bilder/6.jpeg`,
+        alt: { sv: "Elefanter går förbi en safaribil med Safari Jens logotyp" },
+      },
+      {
+        src: `${dir}/rullande-bilder/7.jpeg`,
+        alt: { sv: "En elefant betar framför det snöklädda Kilimanjaro" },
+      },
+      {
+        src: `${dir}/rullande-bilder/8.jpeg`,
+        alt: {
+          sv: "En resenär i massajtyg tillsammans med massajer och en åsna på savannen",
+        },
+      },
+    ],
   },
   unique: {
     paragraphs: {
@@ -84,7 +141,12 @@ export const safariJensProfile: CompanyProfile = {
         "Vi tror inte på standardiserade resrutter. Varje resa utformas noggrant utifrån våra gästers intressen, resestil och förväntningar. Vår starka lokala närvaro, erfarna guider och långvariga relationer i hela Tanzania gör att vi kan skapa sömlösa och meningsfulla reseupplevelser.",
       ],
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/en-resa-skapad-med-omtanke.jpeg`,
+      alt: {
+        sv: "Resenärer och ballongpiloter vid en luftballongkorg i gryningen",
+      },
+    },
   },
   reviews: {
     // TODO: utkast, ska godkännas av kunden.
@@ -120,7 +182,10 @@ export const safariJensProfile: CompanyProfile = {
     text: {
       sv: "...att uppleva Tanzania genom ett lokalt team som verkligen älskar och förstår detta fantastiska land.",
     },
-    image: {},
+    image: {
+      src: `${dir}/runda-bilder/att-resa-med-oss-innebar.jpeg`,
+      alt: { sv: "En resenär med en namnskylt utanför flygplatsen" },
+    },
   },
   contact: {
     // TODO: utkast, ska godkännas av kunden.

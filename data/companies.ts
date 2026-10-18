@@ -99,7 +99,7 @@ export const companies: Company[] = [
   {
     slug: "safari-jens",
     name: "Safari Jens",
-    // Ingen logotyp än: företagsnamnet visas som text i samma ruta.
+    logo: "/companies/safari-jens/logo/logo.jpeg",
     country: "Tanzania",
     // TODO: utkast, ska godkännas av kunden.
     description:
@@ -116,7 +116,7 @@ export const companies: Company[] = [
   {
     slug: "utukufu-travels-adventures",
     name: "Utukufu Travels & Adventures",
-    // Ingen logotyp än: företagsnamnet visas som text i samma ruta.
+    logo: "/companies/utukufu-travels-adventures/logo/logo.jpg",
     country: "Tanzania",
     // TODO: utkast, ska godkännas av kunden.
     description: "Personligt planerade resor med lokal kunskap och ärliga råd.",
