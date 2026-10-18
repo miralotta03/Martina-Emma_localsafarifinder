@@ -71,8 +71,9 @@ export function ContactDialog({
         <CompanyLogo
           name={companyName}
           logo={companyLogo}
-          sizes="200px"
-          className="h-16 w-40"
+          sizes="256px"
+          // Vänsterställd och utan luft runt, så att logotypen linjerar med texten.
+          className="mb-6 h-28 w-64 [&_img]:object-left [&_img]:p-0"
           textClassName="rounded-xl text-lg"
         />
         <h2 id="contact-dialog-heading" className="sr-only">

@@ -59,6 +59,7 @@ export const safariJensProfile: CompanyProfile = {
     image: {
       src: `${dir}/runda-bilder/mot-amelile.jpeg`,
       alt: { sv: "Porträtt av Amelile Jacqueline Ngajilo" },
+      position: "50% 0%",
     },
   },
   team: {

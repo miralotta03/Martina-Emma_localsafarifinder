@@ -26,7 +26,7 @@ export function AboutIntro() {
             ))}
           </div>
 
-          <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-full max-lg:order-first sm:max-w-sm lg:max-w-none">
+          <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-full border-8 border-gold max-lg:order-first sm:max-w-sm lg:max-w-none">
             <Image
               src={aboutIntro.image}
               alt={aboutIntro.imageAlt}
