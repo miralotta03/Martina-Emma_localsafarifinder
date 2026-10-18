@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { contactSchema } from "@/lib/contact/schema";
 import { deliverContact } from "@/lib/contact/deliver";
+import { sendInquiryEmails } from "@/lib/email";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -28,6 +29,8 @@ export async function POST(request: Request) {
   }
 
   await deliverContact(parsed.data);
+  // Kastar aldrig: misslyckas mejlen är meddelandet ändå loggat.
+  await sendInquiryEmails(parsed.data, null);
 
   return NextResponse.json({ ok: true });
 }

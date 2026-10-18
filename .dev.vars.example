@@ -4,3 +4,10 @@
 #
 # Lägg INTE riktiga värden här, utan i .env.local (se .env.example).
 NEXTJS_ENV=development
+
+# Resend-nyckel för att skicka riktiga mejl från formulären i npm run preview.
+# Server-only hemlighet (aldrig NEXT_PUBLIC_), skapas i Resend-dashboarden under
+# API keys. I produktion: Cloudflare → Settings → Variables and Secrets, som
+# Secret (inte Build-sektionen, den behövs bara vid körning). Lämna tom för att
+# bara logga förfrågningar utan att skicka mejl.
+RESEND_API_KEY=

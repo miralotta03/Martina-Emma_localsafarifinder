@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test --disable-warning=MODULE_TYPELESS_PACKAGE_JSON \"lib/**/*.test.ts\"",
+    "test": "node --test --conditions=react-server --disable-warning=MODULE_TYPELESS_PACKAGE_JSON \"lib/**/*.test.ts\"",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --keep-vars",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload --keep-vars"
@@ -16,6 +16,7 @@
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "resend": "^6.34.1",
     "server-only": "^0.0.1",
     "zod": "^4.6.5"
   },

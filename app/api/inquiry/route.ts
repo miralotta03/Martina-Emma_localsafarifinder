@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { inquirySchema } from "@/lib/inquiry/schema";
 import { deliverInquiry } from "@/lib/inquiry/deliver";
+import { sendInquiryEmails } from "@/lib/email";
 import { companiesWithProfile } from "@/data/companies";
 
 export async function POST(request: Request) {
@@ -36,6 +37,8 @@ export async function POST(request: Request) {
   }
 
   await deliverInquiry(data, company);
+  // Kastar aldrig: misslyckas mejlen är förfrågan ändå loggad.
+  await sendInquiryEmails(data, company);
 
   return NextResponse.json({ ok: true });
 }
