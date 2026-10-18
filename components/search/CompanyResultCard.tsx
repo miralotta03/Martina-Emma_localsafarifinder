@@ -3,23 +3,23 @@ import type { Company } from "@/data/companies";
 import { activityLabel } from "@/data/search";
 import { searchContent } from "@/content/sok";
 import { t } from "@/lib/i18n";
-import { CompanyLogo } from "@/components/ui/CompanyLogo";
+import { ImageSlot } from "@/components/ui/ImageSlot";
 import { ArrowRightIcon } from "@/components/ui/icons";
 
 // Samma kortstil som PartnerCard, men i rutnätet (flexibel bredd) och med
-// region, upplevelser och specialitet.
+// region, upplevelser och specialitet. Bilden är företagets hero-bild, aldrig
+// logotypen; saknas den visas samma neutrala platshållare som på företagssidan.
 export function CompanyResultCard({ company }: { company: Company }) {
   const { results } = searchContent;
   const { profile } = company;
 
   const body = (
     <>
-      <CompanyLogo
-        name={company.name}
-        logo={company.logo}
+      <ImageSlot
+        slot={`${company.slug}/search`}
+        image={profile?.heroImage}
         sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
         className="aspect-[8/5] w-full"
-        textClassName="text-2xl"
       />
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
