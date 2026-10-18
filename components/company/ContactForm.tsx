@@ -23,9 +23,9 @@ import {
 // TODO: ska granskas av kunden.
 const travelStyleLabels: Record<TravelStyle, string> = {
   solo: "Solo",
-  par: "Par",
-  familj: "Familj",
-  grupp: "Grupp",
+  par: "Couple",
+  familj: "Family",
+  grupp: "Group",
 };
 
 const experienceLabels: Record<ExperienceType, string> = {
@@ -98,7 +98,7 @@ export function ContactForm({
     return (
       <div role="status" className="py-6">
         <p className="font-serif text-xl text-forest">
-          {`Tack! Din förfrågan har skickats till ${companyName}.`}
+          {`Thank you! Your inquiry has been sent to ${companyName}.`}
         </p>
       </div>
     );
@@ -126,7 +126,7 @@ export function ContactForm({
 
       {status === "error" && Object.keys(errors).length === 0 && (
         <p role="alert" className={errorClass}>
-          Något gick fel. Försök igen om en stund.
+          Something went wrong. Please try again in a moment.
         </p>
       )}
 
@@ -354,15 +354,15 @@ export function ContactForm({
             }
           />
           <span>
-            Jag samtycker till att Local Safari Finder behandlar mina
-            personuppgifter för att vidarebefordra min intresseanmälan till det
-            valda safariföretaget. Jag har läst och godkänner{" "}
+            I agree that Local Safari Finder may process my personal data to
+            forward my inquiry to the selected safari company. I have read and
+            accept the{" "}
             <Link href="/integritetspolicy" className="underline">
-              Integritetspolicyn
+              Privacy Policy
             </Link>{" "}
-            samt{" "}
+            and the{" "}
             <Link href="/anvandarvillkor" className="underline">
-              Användarvillkoren
+              Terms of Use
             </Link>
             .
           </span>
@@ -379,16 +379,16 @@ export function ContactForm({
         disabled={status === "submitting"}
         className={`w-full ${submitClass}`}
       >
-        {status === "submitting" ? "Skickar …" : "Skicka"}
+        {status === "submitting" ? "Sending …" : "Send"}
       </button>
 
       <p className="text-center text-sm">
         <Link href="/integritetspolicy" className="underline">
-          Integritetspolicy
+          Privacy Policy
         </Link>{" "}
         |{" "}
         <Link href="/anvandarvillkor" className="underline">
-          Användarvillkor
+          Terms of Use
         </Link>
       </p>
     </form>

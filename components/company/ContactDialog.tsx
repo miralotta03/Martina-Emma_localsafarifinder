@@ -60,7 +60,7 @@ export function ContactDialog({
         <button
           type="button"
           onClick={close}
-          aria-label="Stäng"
+          aria-label="Close"
           className={`cursor-pointer rounded-full bg-forest-deep p-2 text-cream hover:bg-forest focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${touchTarget}`}
         >
           <CloseIcon className="h-5 w-5" />
@@ -77,7 +77,7 @@ export function ContactDialog({
           textClassName="rounded-xl text-lg"
         />
         <h2 id="contact-dialog-heading" className="sr-only">
-          {`Kontakta ${companyName}`}
+          {`Contact ${companyName}`}
         </h2>
         {isOpen && (
           <ContactForm
