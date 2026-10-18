@@ -30,17 +30,22 @@ export function Button({
   );
 }
 
+// Övriga data-*-attribut (t.ex. data-track-event för Umami) hamnar på länken.
+type DataAttributes = { [key: `data-${string}`]: string | undefined };
+
 export function ArrowLink({
   href,
   children,
   className = "",
+  ...data
 }: {
   href: string;
   children: string;
   className?: string;
-}) {
+} & DataAttributes) {
   return (
     <Link
+      {...data}
       href={href}
       className={`inline-flex items-center gap-2 text-sm font-medium transition-all hover:gap-3 ${touchTarget} ${className}`}
     >

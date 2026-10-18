@@ -11,12 +11,15 @@ export function ContactButton({
   label: string;
   className?: string;
 }) {
-  const { open } = useContactDialog();
+  const { open, companySlug } = useContactDialog();
 
   return (
     <button
       type="button"
       onClick={open}
+      // Umami: se components/analytics/UmamiEvents.tsx.
+      data-track-event="kontakta-klick"
+      data-track-company={companySlug}
       className={`inline-flex cursor-pointer items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-forest-deep transition-colors hover:bg-gold-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light ${className}`}
     >
       {label}

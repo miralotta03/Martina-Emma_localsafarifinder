@@ -10,6 +10,7 @@ import {
   type TravelStyle,
 } from "@/lib/inquiry/schema";
 import { collectFieldErrors, focusFirstInvalid } from "@/lib/forms";
+import { trackEvent } from "@/lib/analytics";
 import {
   errorClass,
   fieldClass,
@@ -87,6 +88,7 @@ export function ContactForm({
       });
       if (!response.ok) throw new Error("request failed");
       setStatus("success");
+      trackEvent("formular-skickat", { company: companySlug });
     } catch {
       setStatus("error");
     }

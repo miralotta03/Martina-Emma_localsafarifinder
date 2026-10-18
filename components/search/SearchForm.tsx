@@ -76,6 +76,8 @@ export function SearchForm({
           />
           <button
             type="submit"
+            // Umami: bara sökrutan i startsidans hero (inte den på /sok).
+            data-track-event={variant === "hero" ? "sok-anvand" : undefined}
             className="inline-flex h-14 w-full shrink-0 cursor-pointer items-center justify-center rounded-full bg-gold px-10 text-sm font-medium text-forest-deep transition-colors hover:bg-gold-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest sm:w-auto"
           >
             {t(form.submit)}

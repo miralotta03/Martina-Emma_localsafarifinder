@@ -8,15 +8,18 @@ export function CategoryCard({
   href,
   image,
   linkLabel,
+  ...data
 }: {
   title: string;
   description: string;
   href: string;
   image: string;
   linkLabel: string;
-}) {
+  // Övriga data-*-attribut (t.ex. data-track-event för Umami) hamnar på länken.
+} & { [key: `data-${string}`]: string | undefined }) {
   return (
     <Link
+      {...data}
       href={href}
       className="group relative block aspect-[4/3] overflow-hidden rounded-3xl bg-forest-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:aspect-[5/4]"
     >

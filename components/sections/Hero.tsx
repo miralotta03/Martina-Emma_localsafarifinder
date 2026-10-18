@@ -37,6 +37,7 @@ export function Hero() {
         </div>
         <ArrowLink
           href={hero.cta.href}
+          data-track-event="hero-utforska-klick"
           className="mt-6 text-cream hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
         >
           {hero.cta.label}

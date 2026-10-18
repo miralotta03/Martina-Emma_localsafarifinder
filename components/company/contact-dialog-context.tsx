@@ -10,6 +10,8 @@ import {
 
 // Delas av alla "Kontakta ➝"-knappar och den enda dialogen på sidan.
 type ContactDialogContextValue = {
+  // Företaget sidan gäller (för spårning av Kontakta-klick).
+  companySlug: string;
   isOpen: boolean;
   open: () => void;
   close: () => void;
@@ -19,16 +21,23 @@ const ContactDialogContext = createContext<ContactDialogContextValue | null>(
   null,
 );
 
-export function ContactDialogProvider({ children }: { children: ReactNode }) {
+export function ContactDialogProvider({
+  companySlug,
+  children,
+}: {
+  companySlug: string;
+  children: ReactNode;
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const value = useMemo(
     () => ({
+      companySlug,
       isOpen,
       open: () => setIsOpen(true),
       close: () => setIsOpen(false),
     }),
-    [isOpen],
+    [companySlug, isOpen],
   );
 
   return (

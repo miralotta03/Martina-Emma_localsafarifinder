@@ -18,6 +18,8 @@ export function ExperienceCategories() {
               <CategoryCard
                 {...item}
                 linkLabel={experienceCategories.linkLabel}
+                data-track-event="kategori-klick"
+                data-track-kategori={item.href.replace(/^\//, "")}
               />
             </li>
           ))}

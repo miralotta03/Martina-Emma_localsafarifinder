@@ -15,7 +15,7 @@ export function CompanyPage({ company }: { company: CompanyWithProfile }) {
   const locale = defaultLocale;
 
   return (
-    <ContactDialogProvider>
+    <ContactDialogProvider companySlug={slug}>
       <CompanyHero slug={slug} profile={profile} locale={locale} />
       <CompanyFacts
         profile={profile}

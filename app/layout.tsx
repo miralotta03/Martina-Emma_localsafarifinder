@@ -3,6 +3,7 @@ import { Lora, Inter } from "next/font/google";
 import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { UmamiEvents } from "@/components/analytics/UmamiEvents";
 import "./globals.css";
 
 const lora = Lora({
@@ -41,11 +42,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/* Umami-statistik på alla sidor. Laddas bara när website-ID:t finns,
           så lokal utveckling utan ID skickar ingen statistik. */}
       {umamiWebsiteId && (
-        <Script
-          src="https://cloud.umami.is/script.js"
-          data-website-id={umamiWebsiteId}
-          strategy="afterInteractive"
-        />
+        <>
+          <Script
+            src="https://cloud.umami.is/script.js"
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+          {/* Klick- och scrollevent, se components/analytics/UmamiEvents.tsx. */}
+          <UmamiEvents />
+        </>
       )}
     </html>
   );

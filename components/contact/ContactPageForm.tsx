@@ -6,6 +6,7 @@ import Link from "next/link";
 import { contactPageContent } from "@/content/kontakt";
 import { contactSchema } from "@/lib/contact/schema";
 import { collectFieldErrors, focusFirstInvalid } from "@/lib/forms";
+import { trackEvent } from "@/lib/analytics";
 import { t } from "@/lib/i18n";
 import {
   errorClass,
@@ -58,6 +59,7 @@ export function ContactPageForm() {
       });
       if (!response.ok) throw new Error("request failed");
       setStatus("success");
+      trackEvent("formular-skickat");
     } catch {
       setStatus("error");
     }
