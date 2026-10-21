@@ -114,7 +114,7 @@ export const partnerCta = {
   eyebrow: "For local safari companies",
   heading: "Do you run a local safari company?",
   body: "Connect with travelers who are looking specifically for local, independent safari companies. No booking commissions. Just direct inquiries sent straight to your inbox.",
-  cta: { label: "Apply for partnership", href: "/bli-partner" },
+  cta: { label: "Apply for partnership", href: "/for-foretag" },
 };
 
 export const footer = {
@@ -141,7 +141,7 @@ export const footerColumns: FooterLinkColumn[] = [
     links: [
       { label: "Om oss", href: "/om-oss" },
       { label: "Kontakta oss", href: "/kontakta-oss" },
-      { label: "Bli Partner", href: "/bli-partner" },
+      { label: "Bli Partner", href: "/for-foretag" },
       { label: "Användarvillkor", href: "/anvandarvillkor" },
       { label: "Integritetspolicy", href: "/integritetspolicy" },
       { label: "Cookiepolicy", href: "/cookiepolicy" },

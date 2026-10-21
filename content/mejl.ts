@@ -2,7 +2,10 @@
 // Ren text, inga HTML-mallar: inget som kunden skriver kan tolkas som HTML.
 // Bekräftelserna till kunden och notisen till info@ är på svenska. Notisen
 // till företagen är på engelska, eftersom företagen svarar kunden på engelska.
+// Partneransökan (/for-foretag): bekräftelsen till den sökande är på engelska,
+// notisen till info@ på svenska.
 import type { ContactInput } from "../lib/contact/schema.ts";
+import type { PartnerInput } from "../lib/partner/schema.ts";
 import type {
   ExperienceType,
   InquiryInput,
@@ -99,6 +102,44 @@ export function contactNotification(message: ContactInput): Email {
       "Nytt meddelande via kontaktformuläret på /kontakta-oss. Svara på det här mejlet för att svara avsändaren direkt.",
       `Namn: ${message.name}\nMail: ${message.email}`,
       `Meddelande:\n${message.message}`,
+    ].join("\n\n"),
+  };
+}
+
+// Bekräftelse till den sökande, /for-foretag (engelska).
+export function partnerApplicationConfirmation(
+  application: PartnerInput,
+): Email {
+  return {
+    subject: "We have received your application – Local Safari Finder",
+    text: [
+      `Hello ${application.contactPerson},`,
+      `Thank you for applying to be featured on Local Safari Finder with ${application.companyName}. We will review your application and get back to you as soon as we can.`,
+      "This email cannot be replied to.",
+      "Best regards,\nLocal Safari Finder",
+    ].join("\n\n"),
+  };
+}
+
+// Notis till info@ från /for-foretag (svenska). Svaret går direkt till den
+// sökande (reply-to).
+export function partnerApplicationNotification(
+  application: PartnerInput,
+): Email {
+  const rows: [string, string][] = [
+    ["Företag", application.companyName],
+    ["Kontaktperson", application.contactPerson],
+    ["Mail", application.email],
+    ["Webbplats", application.companyWebsite || "–"],
+    ["Land/region", application.country],
+  ];
+  return {
+    subject: `Ny partneransökan via Local Safari Finder – ${application.companyName}`,
+    text: [
+      "Ny ansökan via formuläret på /for-foretag. Svara på det här mejlet för att svara den sökande direkt.",
+      rows.map(([label, value]) => `${label}: ${value}`).join("\n"),
+      `Om företaget:\n${application.about}`,
+      `Varför de vill synas på Local Safari Finder:\n${application.motivation}`,
     ].join("\n\n"),
   };
 }

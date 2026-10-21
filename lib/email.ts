@@ -4,6 +4,7 @@ import { Resend } from "resend";
 // (som inte förstår @/-aliaset).
 import type { ContactInput } from "./contact/schema.ts";
 import type { InquiryInput } from "./inquiry/schema.ts";
+import type { PartnerInput } from "./partner/schema.ts";
 import {
   FROM_ADDRESS,
   GENERAL_INBOX,
@@ -15,6 +16,8 @@ import {
   companyInquiryNotification,
   contactConfirmation,
   contactNotification,
+  partnerApplicationConfirmation,
+  partnerApplicationNotification,
   type Email,
 } from "../content/mejl.ts";
 
@@ -131,6 +134,56 @@ export async function sendInquiryEmails(
 
   console.log("[email]", {
     company: companyLabel,
+    customer: customerResult,
+    notification: notificationResult,
+  });
+  return { customer: customerResult, notification: notificationResult };
+}
+
+// Partneransökan från /for-foretag: bekräftelse till den sökande och notis
+// till info@. Kastar aldrig, som sendInquiryEmails.
+export async function sendPartnerApplicationEmails(
+  application: PartnerInput,
+  { env = process.env, send }: { env?: Env; send?: EmailSender } = {},
+): Promise<SendResult> {
+  const label = "for-foretag";
+
+  const apiKey = env.RESEND_API_KEY?.trim();
+  const sender = send ?? (apiKey ? resendSender(apiKey) : undefined);
+  if (!sender) {
+    console.warn(
+      "[email] RESEND_API_KEY saknas. Ansökan är loggad, men inget mejl skickas.",
+    );
+    return { customer: "skipped", notification: "skipped" };
+  }
+
+  const [customerResult, notificationResult] = await Promise.all([
+    sendOne(
+      sender,
+      {
+        ...partnerApplicationConfirmation(application),
+        from: FROM_ADDRESS,
+        to: application.email,
+      },
+      "bekräftelse",
+      label,
+    ),
+    sendOne(
+      sender,
+      // Svar på notisen går direkt till den sökande.
+      {
+        ...partnerApplicationNotification(application),
+        from: FROM_ADDRESS,
+        to: GENERAL_INBOX,
+        replyTo: application.email,
+      },
+      "notis",
+      label,
+    ),
+  ]);
+
+  console.log("[email]", {
+    company: label,
     customer: customerResult,
     notification: notificationResult,
   });

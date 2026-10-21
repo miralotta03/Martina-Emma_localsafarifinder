@@ -1,8 +1,13 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
-import { sendInquiryEmails, type OutgoingEmail } from "./email.ts";
+import {
+  sendInquiryEmails,
+  sendPartnerApplicationEmails,
+  type OutgoingEmail,
+} from "./email.ts";
 import type { InquiryInput } from "./inquiry/schema.ts";
 import type { ContactInput } from "./contact/schema.ts";
+import type { PartnerInput } from "./partner/schema.ts";
 
 // Inga riktiga mejl: en låtsasavsändare samlar det som skulle ha skickats.
 function mockSender(fail = false) {
@@ -107,5 +112,62 @@ describe("sendInquiryEmails", () => {
       }),
     );
     assert.deepEqual(result, { customer: "skipped", notification: "skipped" });
+  });
+});
+
+describe("sendPartnerApplicationEmails", () => {
+  const application: PartnerInput = {
+    companyName: "Test Safaris",
+    contactPerson: "Asha",
+    email: "asha@example.com",
+    companyWebsite: "",
+    country: "Arusha, Tanzania",
+    about: "Small family company.",
+    motivation: "Reach more travelers.",
+    consent: true,
+    website: "",
+  };
+
+  test("bekräftelse på engelska till den sökande, notis på svenska till info@", async () => {
+    const mock = mockSender();
+    const result = await quiet(() =>
+      sendPartnerApplicationEmails(application, { env, send: mock.send }),
+    );
+    assert.deepEqual(result, { customer: "sent", notification: "sent" });
+    assert.equal(mock.sent.length, 2);
+
+    const confirmation = mock.sent.find((m) => m.to === "asha@example.com");
+    assert.ok(confirmation, "bekräftelse till den sökande");
+    assert.match(confirmation.text, /Hello Asha,/);
+    assert.match(confirmation.text, /Test Safaris/);
+
+    const notice = mock.sent.find((m) => m.to === "info@localsafarifinder.com");
+    assert.ok(notice, "notis till info@");
+    assert.equal(notice.replyTo, "asha@example.com");
+    assert.match(notice.subject, /Ny partneransökan.*Test Safaris/);
+    for (const value of [
+      "Asha",
+      "Arusha, Tanzania",
+      "Small family company.",
+      "Reach more travelers.",
+      "Webbplats: –",
+    ]) {
+      assert.ok(notice.text.includes(value), `notisen innehåller "${value}"`);
+    }
+  });
+
+  test("utan RESEND_API_KEY skickas inget", async () => {
+    const result = await quiet(() =>
+      sendPartnerApplicationEmails(application, { env: {} }),
+    );
+    assert.deepEqual(result, { customer: "skipped", notification: "skipped" });
+  });
+
+  test("misslyckat utskick kastar inte", async () => {
+    const mock = mockSender(true);
+    const result = await quiet(() =>
+      sendPartnerApplicationEmails(application, { env, send: mock.send }),
+    );
+    assert.deepEqual(result, { customer: "failed", notification: "failed" });
   });
 });
