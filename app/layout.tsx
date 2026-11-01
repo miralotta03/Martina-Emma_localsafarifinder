@@ -48,6 +48,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Script
             src="https://cloud.umami.is/script.js"
             data-website-id={umamiWebsiteId}
+            // Räkna bara besök på den riktiga domänen, inte localhost eller
+            // Cloudflares preview-URL:er.
+            data-domains="localsafarifinder.com,www.localsafarifinder.com"
             strategy="afterInteractive"
           />
           {/* Klick- och scrollevent, se components/analytics/UmamiEvents.tsx. */}
