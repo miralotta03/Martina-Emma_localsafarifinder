@@ -7,7 +7,7 @@
 // .env.local. Se .env.example.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "martina-emma-localsafarifinder",
+  "name": "local-safari-finder",
   "main": "worker/index.ts",
   "compatibility_date": "2026-10-06",
   // nodejs_compat: process.env (hemligheterna) och Resend-klienten.
