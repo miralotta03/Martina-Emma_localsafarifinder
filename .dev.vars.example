@@ -1,13 +1,13 @@
-# Kopiera till .dev.vars (ignoreras av git) för att testa Cloudflare-versionen
-# lokalt med `npm run preview`. Talar om för adaptern att läsa Next.js
-# .env-filer för utveckling (t.ex. .env.local).
+# Behövs normalt inte. Formulärens Worker (`npm run dev:api`, `npm run preview`)
+# läser .env.local själv, men BARA om det inte finns någon .dev.vars. Lägg
+# därför hemligheterna i .env.local (se .env.example) och ha ingen .dev.vars.
 #
-# Lägg INTE riktiga värden här, utan i .env.local (se .env.example).
-NEXTJS_ENV=development
-
-# Resend-nyckel för att skicka riktiga mejl från formulären i npm run preview.
-# Server-only hemlighet (aldrig NEXT_PUBLIC_), skapas i Resend-dashboarden under
-# API keys. I produktion: Cloudflare → Settings → Variables and Secrets, som
-# Secret (inte Build-sektionen, den behövs bara vid körning). Lämna tom för att
-# bara logga förfrågningar utan att skicka mejl.
+# Vill du ändå ha separata värden för Workern lokalt: kopiera den här filen
+# till .dev.vars (ignoreras av git). Då läses .env.local inte alls, så alla
+# variabler Workern behöver måste stå här.
 RESEND_API_KEY=
+INQUIRY_TO_HEC_KILIMANJARO_SAFARIS=
+INQUIRY_TO_SMART_ESCAPES=
+INQUIRY_TO_CARACAL_TOURS_SAFARIS=
+INQUIRY_TO_SAFARI_JENS=
+INQUIRY_TO_UTUKUFU_TRAVELS_ADVENTURES=

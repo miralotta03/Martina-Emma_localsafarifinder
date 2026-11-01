@@ -34,14 +34,19 @@ export const searchContent = {
     "dela-upplevelsen": text("I grupp"),
   } satisfies Record<TravelerCategorySlug, LocalizedText>,
   results: {
+    // Samma titel för alla sökningar: sidan är statisk och filtreras i
+    // webbläsaren.
     metaTitle: text("Sök företag – Local Safari Finder"),
-    metaTitleFiltered: text("{filters} – Sök företag – Local Safari Finder"),
     metaDescription: text(
       "Hitta lokala safariföretag efter destination, sätt att resa och upplevelse.",
     ),
     eyebrow: text("SÖK"),
     heading: text("Hitta ditt lokala safariföretag"),
     count: text("{count} företag"),
+    // Visas bara utan JavaScript: resultaten filtreras i webbläsaren.
+    noScript: text(
+      "Sökresultaten kräver JavaScript. Aktivera JavaScript i webbläsaren, eller utforska företagen via Upplevelser.",
+    ),
     activeFilters: text("Valda filter"),
     removeFilter: text("Ta bort filter: {label}"),
     readMore: text("Läs mer"),

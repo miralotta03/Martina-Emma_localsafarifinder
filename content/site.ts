@@ -5,6 +5,9 @@ import type {
   WhyLocalFeature,
 } from "@/lib/types";
 
+// Sajtens adress, för robots.txt och sitemap.xml.
+export const siteUrl = "https://localsafarifinder.com";
+
 export const nav: NavDropdownLink[] = [
   { label: "Hem", href: "/" },
   {

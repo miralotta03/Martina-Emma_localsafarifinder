@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev:api": "node -e \"require('fs').mkdirSync('out',{recursive:true})\" && wrangler dev --port 8787",
+    "build": "next build && node scripts/fix-export-segments.mjs && node scripts/build-images.mjs",
+    "start": "wrangler dev",
     "lint": "eslint",
     "test": "node --test --conditions=react-server --disable-warning=MODULE_TYPELESS_PACKAGE_JSON \"lib/**/*.test.ts\"",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --keep-vars",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload --keep-vars"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy --keep-vars",
+    "upload": "npm run build && wrangler versions upload"
   },
   "dependencies": {
     "next": "16.3.8",
@@ -21,13 +22,13 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.147.0"

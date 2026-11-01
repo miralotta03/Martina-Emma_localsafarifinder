@@ -49,12 +49,17 @@ export function filterChips(query: SearchQuery): Chip[] {
   return chips;
 }
 
+// `pending`: den förrenderade versionen innan sökningen har lästs från URL:en
+// i webbläsaren. Visar sökfältet men inga resultat (och ett meddelande om
+// JavaScript är avstängt).
 export function SearchResults({
   query,
   companies,
+  pending = false,
 }: {
   query: SearchQuery;
   companies: Company[];
+  pending?: boolean;
 }) {
   const { results } = searchContent;
   const chips = filterChips(query);
@@ -84,64 +89,72 @@ export function SearchResults({
         className="bg-cream-dark py-12 lg:py-16"
       >
         <Container>
-          <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <h2
-              id="search-results-heading"
-              aria-live="polite"
-              className="font-serif text-2xl text-forest sm:text-3xl"
-            >
-              {format(t(results.count), { count: companies.length })}
-            </h2>
-            {chips.length > 0 && (
-              <ul
-                aria-label={t(results.activeFilters)}
-                className="flex flex-wrap gap-2"
-              >
-                {chips.map((chip) => (
-                  <li key={chip.key}>
-                    {/* ::after ger 44 px hög tryckyta utan att chipet växer. */}
-                    <Link
-                      href={chip.href}
-                      aria-label={format(t(results.removeFilter), {
-                        label: chip.label,
-                      })}
-                      className="relative inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-cream py-1.5 pr-2.5 pl-4 after:absolute after:inset-x-0 after:-inset-y-[5px] after:content-[''] text-sm text-forest transition-colors hover:border-forest/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-                    >
-                      {chip.label}
-                      <CloseIcon className="h-4 w-4" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {companies.length > 0 ? (
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {companies.map((company) => (
-                <li key={company.slug}>
-                  <CompanyResultCard company={company} />
-                </li>
-              ))}
-            </ul>
+          {pending ? (
+            <noscript>
+              <p className="max-w-xl text-ink/80">{t(results.noScript)}</p>
+            </noscript>
           ) : (
-            <div className="mt-8 max-w-xl rounded-2xl bg-cream p-8">
-              <p className="font-serif text-2xl text-forest">
-                {t(results.empty.heading)}
-              </p>
-              <p className="mt-3 text-ink/80">{t(results.empty.body)}</p>
-              <div className="mt-6 flex flex-wrap items-center gap-6">
-                <Button href="/sok" variant="forest">
-                  {t(results.empty.clear)}
-                </Button>
-                <ArrowLink
-                  href="/upplevelser"
-                  className="text-forest hover:text-gold-dark"
+            <>
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+                <h2
+                  id="search-results-heading"
+                  aria-live="polite"
+                  className="font-serif text-2xl text-forest sm:text-3xl"
                 >
-                  {t(results.empty.explore)}
-                </ArrowLink>
+                  {format(t(results.count), { count: companies.length })}
+                </h2>
+                {chips.length > 0 && (
+                  <ul
+                    aria-label={t(results.activeFilters)}
+                    className="flex flex-wrap gap-2"
+                  >
+                    {chips.map((chip) => (
+                      <li key={chip.key}>
+                        {/* ::after ger 44 px hög tryckyta utan att chipet växer. */}
+                        <Link
+                          href={chip.href}
+                          aria-label={format(t(results.removeFilter), {
+                            label: chip.label,
+                          })}
+                          className="relative inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-cream py-1.5 pr-2.5 pl-4 after:absolute after:inset-x-0 after:-inset-y-[5px] after:content-[''] text-sm text-forest transition-colors hover:border-forest/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                        >
+                          {chip.label}
+                          <CloseIcon className="h-4 w-4" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-            </div>
+
+              {companies.length > 0 ? (
+                <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {companies.map((company) => (
+                    <li key={company.slug}>
+                      <CompanyResultCard company={company} />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="mt-8 max-w-xl rounded-2xl bg-cream p-8">
+                  <p className="font-serif text-2xl text-forest">
+                    {t(results.empty.heading)}
+                  </p>
+                  <p className="mt-3 text-ink/80">{t(results.empty.body)}</p>
+                  <div className="mt-6 flex flex-wrap items-center gap-6">
+                    <Button href="/sok" variant="forest">
+                      {t(results.empty.clear)}
+                    </Button>
+                    <ArrowLink
+                      href="/upplevelser"
+                      className="text-forest hover:text-gold-dark"
+                    >
+                      {t(results.empty.explore)}
+                    </ArrowLink>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </Container>
       </section>

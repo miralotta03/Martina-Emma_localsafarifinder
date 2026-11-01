@@ -11,6 +11,9 @@ import { CategoryActivityPage } from "@/components/sections/CategoryActivityPage
 // /{kategori}/{aktivitet} har två segment och kan därför aldrig krocka med
 // kategorisidorna eller företagssidorna (ett segment). Bara kombinationer i
 // data/categoryActivities.ts finns; allt annat är 404.
+// Statisk export: bara kombinationerna nedan byggs.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return categoryActivityPages.map(({ category, activity }) => ({
     slug: category,

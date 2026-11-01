@@ -1,27 +1,35 @@
-// Cloudflare Worker för Local Safari Finder, byggd med @opennextjs/cloudflare.
-// Inga hemligheter här: körtidsvariabler läggs i Cloudflares dashboard
-// (Settings → Variables and Secrets), lokalt i .env.local. Se .env.example.
+// Cloudflare för Local Safari Finder: sajten är en statisk export (out/, byggs
+// med `npm run build`) som serveras som Workers Static Assets. Workern
+// (worker/index.ts) körs BARA för /api/* (formulären); alla sidor, bilder och
+// filer serveras direkt utan Worker-anrop.
+// Inga hemligheter här: RESEND_API_KEY och INQUIRY_TO_* läggs i Cloudflares
+// dashboard (Settings → Variables and Secrets), lokalt i .dev.vars eller
+// .env.local. Se .env.example.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "local-safari-finder",
-  "main": ".open-next/worker.js",
+  "name": "martina-emma-localsafarifinder",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-06",
+  // nodejs_compat: process.env (hemligheterna) och Resend-klienten.
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "directory": "./out",
+    // /om-oss serveras från om-oss.html (standard, skrivs ut för tydlighet).
+    "html_handling": "auto-trailing-slash",
+    // Okända sökvägar får out/404.html (app/not-found.tsx) med status 404.
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"],
   },
-  // next/image optimeras via Cloudflare Images. Gratisplanen: 5 000 unika
-  // transformationer per månad, debiteras aldrig (över gränsen ger nya
-  // transformationer fel 9422 i stället).
-  "images": {
-    "binding": "IMAGES"
+  // `server-only` kastar fel utanför Next.js serverkomponenter. I Workern är
+  // allt serverkod, så den pekas om till sin tomma variant.
+  "alias": {
+    "server-only": "./node_modules/server-only/empty.js",
   },
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   // Inte hemligt (syns i sidans HTML). Se .env.example.
   "vars": {
-    "NEXT_PUBLIC_UMAMI_WEBSITE_ID": "b2fa7436-9eea-4de3-839d-9d0ab857be9b"
-  }
+    "NEXT_PUBLIC_UMAMI_WEBSITE_ID": "b2fa7436-9eea-4de3-839d-9d0ab857be9b",
+  },
 }

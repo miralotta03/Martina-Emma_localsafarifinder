@@ -14,6 +14,9 @@ import { t } from "@/lib/i18n";
 // Kategorier och företag delar toppnivå-URL:er. Allt löses här: sluggen slås
 // upp bland kategorier och företag med profil, annars 404. data/routes.ts ser
 // till att en slug aldrig kan tillhöra båda.
+// Statisk export: bara sluggarna nedan byggs, allt annat ger 404-sidan.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return [
     ...categories

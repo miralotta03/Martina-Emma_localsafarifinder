@@ -1,38 +1,28 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import { companies } from "@/data/companies";
-import { parseCompanySearch } from "@/data/search";
 import "@/data/routes";
 import { searchContent } from "@/content/sok";
-import { format, t } from "@/lib/i18n";
-import { searchCompanies } from "@/lib/search";
-import {
-  SearchResults,
-  filterChips,
-} from "@/components/search/SearchResults";
+import { t } from "@/lib/i18n";
+import { SearchResults } from "@/components/search/SearchResults";
+import { SearchPage } from "@/components/search/SearchPage";
 
 const { results } = searchContent;
 
 // Varje filterkombination är en egen URL; de ska inte indexeras, men länkarna
 // till företagssidorna ska följas.
-export async function generateMetadata({
-  searchParams,
-}: PageProps<"/sok">): Promise<Metadata> {
-  const query = parseCompanySearch(await searchParams);
-  const filters = filterChips(query).map((chip) => chip.label);
+export const metadata: Metadata = {
+  title: t(results.metaTitle),
+  description: t(results.metaDescription),
+  robots: { index: false, follow: true },
+};
 
-  return {
-    title: filters.length
-      ? format(t(results.metaTitleFiltered), { filters: filters.join(", ") })
-      : t(results.metaTitle),
-    description: t(results.metaDescription),
-    robots: { index: false, follow: true },
-  };
-}
-
-export default async function SearchPage({ searchParams }: PageProps<"/sok">) {
-  const query = parseCompanySearch(await searchParams);
-
+// Statisk sida: sökningen läses från URL:en och filtreras i webbläsaren
+// (components/search/SearchPage.tsx). Den förrenderade HTML:en visar
+// sökfältet utan resultat tills dess.
+export default function SearchRoute() {
   return (
-    <SearchResults query={query} companies={searchCompanies(companies, query)} />
+    <Suspense fallback={<SearchResults query={{}} companies={[]} pending />}>
+      <SearchPage />
+    </Suspense>
   );
 }

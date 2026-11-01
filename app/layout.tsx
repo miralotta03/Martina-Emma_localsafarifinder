@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   title: "Local Safari Finder – Hitta en lokal safari i Afrika",
   description:
     "Vi kopplar dig direkt till små, oberoende safariföretag i Afrika. Inga mellanhänder, inga bokningsavgifter.",
+  // Ikon för hemskärmen på iOS (public/apple-touch-icon.png).
+  icons: { apple: "/apple-touch-icon.png" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
